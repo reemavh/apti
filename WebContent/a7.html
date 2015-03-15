@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function populateYears() {
+
+	var obj1=document.getElementById("grad1s");
+	var obj2=document.getElementById("grad1e");
+	var obj3=document.getElementById("grad2s");
+	var obj4=document.getElementById("grad2e");
+	var obj5=document.getElementById("grad3s");
+	var obj6=document.getElementById("grad3e");
+	var obj7=document.getElementById("grad4s");
+	var obj8=document.getElementById("grad4e");
+	
+	var d = new Date();
+	var year = d.getFullYear();
+
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;
+		obj1.appendChild(option);
+	}
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;
+		obj2.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;
+		obj3.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;	
+		obj4.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;	
+		obj5.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;	
+		obj6.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;	
+		obj7.appendChild(option);
+	}
+	
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i;	
+		obj8.appendChild(option);
+	}
+}
+
+function updateX() {
+
+	var check = document.getElementById("skip").checked;
+	if(check==true)
+		document.getElementById("stdX").style.display = 'none';
+	else
+		document.getElementById("stdX").style.display = 'inline';
+}
+</script>
+</head>
+<body onload="populateYears()">
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>HIGHER STUDIES</b></label></p>
+<input type="checkbox" onclick="updateX()" id="skip">
+<label class="cbox" style="font-size:14px">I haven't pursued any higher studies yet</label>
+<div id="stdX">
+<table>
+<tr><td>Name of the course &emsp;</td><td><input type="text" id="course_name" class="school"></td></tr>
+<tr><td>Name of the college &emsp;</td><td><input type="text" id="college_name" class="school"></td></tr>
+</table>
+<br>
+<table style="font-size:14px">
+<tr><td><b>Year</b></td><td><b>Started in</b></td><td><b>Completed in</b></td><td><b>Overall percentage</b></td></tr>
+<tr><td>First &emsp;&emsp;</td>
+<td><select id="grad1s"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad1e"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad1p">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option></select>&emsp;</td></tr>
+<tr><td>Second &emsp;&emsp;</td>
+<td><select id="grad2s"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad2e"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad2p">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option></select>&emsp;</td></tr>
+<tr><td>Third &emsp;&emsp;</td>
+<td><select id="grad3s"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad3e"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad3p">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option></select>&emsp;</td></tr>
+<tr><td>Fourth &emsp;&emsp;</td>
+<td><select id="grad4s"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad4e"><option disabled selected></option>
+<option value="na">Not applicable</option>
+</select>&emsp;</td>
+<td><select id="grad4p">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option></select>&emsp;</td></tr></table>
+<br>
+Any other details that you wish to provide
+<br>
+<textarea id="hcomments"></textarea>
+<br>
+</div>
+<div id="dialog1" style="display:none">
+<p>Please enter the college and course name</p>
+</div>
+<div id="dialog2" style="display:none">
+Kindly verify the details. Incomplete details will be discarded. Press OK to continue. Press cancel to re-enter details
+</div>
+<br>
+<a class="myButton" onclick="submitHigher()">Continue</a>
+</body>
+</html>

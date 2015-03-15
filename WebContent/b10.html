@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script>
+function counsel() {	
+	var yes = document.getElementById("cyes").checked;
+	var no = document.getElementById("cno").checked;
+	
+	if(no==true)
+		document.getElementById("divCoun").style.display = 'none';
+	else if(yes==true)
+		document.getElementById("divCoun").style.display = 'inline';
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>COUNSELING</b></label></p>
+Do you wish to discuss any specific issue or problem with a counselor ?
+<input type="radio" id="cyes" name="cyn" value="Yes" onclick="counsel()">Yes
+<input type="radio" id="cno"  name="cyn" value="No"  onclick="counsel()">No
+<div id="divCoun" class="coundiv">
+<br><br><label style="font-size:14px">Kindly describe the issues or problems you want to discuss. <b>We will keep this confidential.</b></label>
+<br><textarea id="counselling_desc" class="medium" style="height:250px" id="problem"></textarea>
+</div>
+<br><br>
+<a class="myButton" onclick="submitCounselling()">Continue</a>
+<div id="dialog2" style="display:none">
+You haven't mentioned any problems/issues. Do you wish to continue?
+</div>
+<div id="dialog3" style="display:none">
+Please select either Yes or No.
+</div>
+</body>
+</html>

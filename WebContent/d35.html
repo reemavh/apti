@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var remaining=20;
+function updateRem(i) {
+	var id = "voc"+i;
+	if(document.getElementById(id).checked) {
+		remaining--;
+		if(remaining < 0 ) {
+			document.getElementById(id).checked=false;
+			remaining++;
+			baAlert("#oocError")
+		}
+	}
+	else
+		remaining++;
+	document.getElementById("cr").innerHTML="&emsp;&emsp;&emsp;"+remaining;
+}
+</script>
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<b>Vocational Interest Test</b>
+<p>
+<label style="font-size:16px">
+Select (<b>not more than 20</b>) from the vocations listed below, what type of work you would be happy doing, if given good opportunities in that field.
+</label>
+</p>
+<table> 
+<tr><td>
+<label style="color:red;font-size:14px">*There are 112 options. Make sure you scroll down and read all them.</label>
+<div style="height:300px" class="scroll">
+<table style="font-size:14px">
+<tr>
+<td><input type="checkbox" id="voc1"  onclick="updateRem(1);">&emsp;Accountant/ C.A.</td>
+<td><input type="checkbox" id="voc2"  onclick="updateRem(2);">&emsp;Advertising Work</td>
+<td><input type="checkbox" id="voc3"  onclick="updateRem(3);">&emsp;Aerial Photographer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc4"  onclick="updateRem(4);">&emsp;Air Hostess/ Steward</td>
+<td><input type="checkbox" id="voc5"  onclick="updateRem(5);">&emsp;Air traffic Controller</td>
+<td><input type="checkbox" id="voc6"  onclick="updateRem(6);">&emsp;Airlines executive</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc7"  onclick="updateRem(7);">&emsp;Anchoring/ RJ/ DJ</td>
+<td><input type="checkbox" id="voc8"  onclick="updateRem(8);">&emsp;Appraiser / valuer</td>
+<td><input type="checkbox" id="voc9"  onclick="updateRem(9);">&emsp;Archaeologist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc10"  onclick="updateRem(10);">&emsp;Army Officer</td>
+<td><input type="checkbox" id="voc11"  onclick="updateRem(11);">&emsp;Astronaut</td>
+<td><input type="checkbox" id="voc12"  onclick="updateRem(12);">&emsp;Athletics coach</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc13"  onclick="updateRem(13);">&emsp;Banker</td>
+<td><input type="checkbox" id="voc14"  onclick="updateRem(14);">&emsp;Biotechnologist</td>
+<td><input type="checkbox" id="voc15"  onclick="updateRem(15);">&emsp;Budget/Finance planner</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc16"  onclick="updateRem(16);">&emsp;Business consultant</td>
+<td><input type="checkbox" id="voc17"  onclick="updateRem(17);">&emsp;Cartoonist/animator</td>
+<td><input type="checkbox" id="voc18"  onclick="updateRem(18);">&emsp;CBI/Intelligence Officer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc19"  onclick="updateRem(19);">&emsp;Child Counselor</td>
+<td><input type="checkbox" id="voc20"  onclick="updateRem(20);">&emsp;City Planner</td>
+<td><input type="checkbox" id="voc21"  onclick="updateRem(21);">&emsp;Civil Engineer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc22"  onclick="updateRem(22);">&emsp;Commander</td>
+<td><input type="checkbox" id="voc23"  onclick="updateRem(23);">&emsp;Commercial Photographer</td>
+<td><input type="checkbox" id="voc24"  onclick="updateRem(24);">&emsp;Company director</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc25"  onclick="updateRem(25);">&emsp;Computer Engineer</td>
+<td><input type="checkbox" id="voc26"  onclick="updateRem(26);">&emsp;Cost and Works accountant</td>
+<td><input type="checkbox" id="voc27"  onclick="updateRem(27);">&emsp;Counselor/psychologist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc28"  onclick="updateRem(28);">&emsp;Crime Reporter</td>
+<td><input type="checkbox" id="voc29"  onclick="updateRem(29);">&emsp;Department Store/Mall Manager</td>
+<td><input type="checkbox" id="voc30"  onclick="updateRem(30);">&emsp;Detective/ Investigator</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc31"  onclick="updateRem(31);">&emsp;Disease Research work</td>
+<td><input type="checkbox" id="voc32"  onclick="updateRem(32);">&emsp;Doctor/ Para-medical</td>
+<td><input type="checkbox" id="voc33"  onclick="updateRem(33);">&emsp;Dog/Animal Breeder</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc34"  onclick="updateRem(34);">&emsp;Economist</td>
+<td><input type="checkbox" id="voc35"  onclick="updateRem(35);">&emsp;Editor/journalist</td>
+<td><input type="checkbox" id="voc36"  onclick="updateRem(36);">&emsp;Education manager</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc37"  onclick="updateRem(37);">&emsp;Entrepreneur</td>
+<td><input type="checkbox" id="voc38"  onclick="updateRem(38);">&emsp;Environment Specialist</td>
+<td><input type="checkbox" id="voc39"  onclick="updateRem(39);">&emsp;Event manager</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc40"  onclick="updateRem(40);">&emsp;Explorer</td>
+<td><input type="checkbox" id="voc41"  onclick="updateRem(41);">&emsp;Facilities manager</td>
+<td><input type="checkbox" id="voc42"  onclick="updateRem(42);">&emsp;Factory Manager</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc43"  onclick="updateRem(43);">&emsp;Farmer/ agriculturist</td>
+<td><input type="checkbox" id="voc44"  onclick="updateRem(44);">&emsp;Fashion Designer</td>
+<td><input type="checkbox" id="voc45"  onclick="updateRem(45);">&emsp;Fighter Pilot</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc46"  onclick="updateRem(46);">&emsp;Finance manager</td>
+<td><input type="checkbox" id="voc47"  onclick="updateRem(47);">&emsp;Fire fighter</td>
+<td><input type="checkbox" id="voc48"  onclick="updateRem(48);">&emsp;Film/ theater Director</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc49"  onclick="updateRem(49);">&emsp;Food Analyst</td>
+<td><input type="checkbox" id="voc50"  onclick="updateRem(50);">&emsp;Foreign exchange Specialist</td>
+<td><input type="checkbox" id="voc51"  onclick="updateRem(51);">&emsp;Foreign Service Officer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc52"  onclick="updateRem(52);">&emsp;Franchise developer</td>
+<td><input type="checkbox" id="voc53"  onclick="updateRem(53);">&emsp;Historian or Museum Mgr</td>
+<td><input type="checkbox" id="voc54"  onclick="updateRem(54);">&emsp;Hospital Administrator</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc55"  onclick="updateRem(55);">&emsp;Hotel Manager</td>
+<td><input type="checkbox" id="voc56"  onclick="updateRem(56);">&emsp;HRD Manager</td>
+<td><input type="checkbox" id="voc57"  onclick="updateRem(57);">&emsp;IAS/KAS officer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc58"  onclick="updateRem(58);">&emsp;Insurance expert</td>
+<td><input type="checkbox" id="voc59"  onclick="updateRem(59);">&emsp;International Trade</td>
+<td><input type="checkbox" id="voc60"  onclick="updateRem(60);">&emsp;Interpreter/Translator</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc61"  onclick="updateRem(61);">&emsp;Inventor or product developer</td>
+<td><input type="checkbox" id="voc62"  onclick="updateRem(62);">&emsp;Investment Banker</td>
+<td><input type="checkbox" id="voc63"  onclick="updateRem(63);">&emsp;Labor Welfare Officer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc64"  onclick="updateRem(64);">&emsp;Lawyer/ legal expert</td>
+<td><input type="checkbox" id="voc65"  onclick="updateRem(65);">&emsp;Librarian</td>
+<td><input type="checkbox" id="voc66"  onclick="updateRem(66);">&emsp;Logistics/supply officer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc67"  onclick="updateRem(67);">&emsp;Marketing Professional</td>
+<td><input type="checkbox" id="voc68"  onclick="updateRem(68);">&emsp;Mathematician</td>
+<td><input type="checkbox" id="voc69"  onclick="updateRem(69);">&emsp;Mechanical Engineer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc70"  onclick="updateRem(70);">&emsp;Meteorologist</td>
+<td><input type="checkbox" id="voc71"  onclick="updateRem(71);">&emsp;Microbiologist</td>
+<td><input type="checkbox" id="voc72"  onclick="updateRem(72);">&emsp;Model/Actor</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc73"  onclick="updateRem(73);">&emsp;Music composer</td>
+<td><input type="checkbox" id="voc74"  onclick="updateRem(74);">&emsp;NGO manager</td>
+<td><input type="checkbox" id="voc75"  onclick="updateRem(75);">&emsp;Social worker</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc76"  onclick="updateRem(76);">&emsp;Nutrition/ dietician</td>
+<td><input type="checkbox" id="voc77"  onclick="updateRem(77);">&emsp;Office manager</td>
+<td><input type="checkbox" id="voc78"  onclick="updateRem(78);">&emsp;Officer of a ship</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc79"  onclick="updateRem(79);">&emsp;Pediatrician</td>
+<td><input type="checkbox" id="voc80"  onclick="updateRem(80);">&emsp;Pharmacist/drug mfr</td>
+<td><input type="checkbox" id="voc81"  onclick="updateRem(81);">&emsp;Plant specialist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc82"  onclick="updateRem(82);">&emsp;Political analyst</td>
+<td><input type="checkbox" id="voc83"  onclick="updateRem(83);">&emsp;Politician</td>
+<td><input type="checkbox" id="voc84"  onclick="updateRem(84);">&emsp;Pollution control Expert</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc85"  onclick="updateRem(85);">&emsp;Portal/webpage manager</td>
+<td><input type="checkbox" id="voc86"  onclick="updateRem(86);">&emsp;Professional Car racing</td>
+<td><input type="checkbox" id="voc87"  onclick="updateRem(87);">&emsp;Projects developer</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc88"  onclick="updateRem(88);">&emsp;Public Speaker</td>
+<td><input type="checkbox" id="voc89"  onclick="updateRem(89);">&emsp;Real Estate Developer</td>
+<td><input type="checkbox" id="voc90"  onclick="updateRem(90);">&emsp;Religious Leader</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc91"  onclick="updateRem(91);">&emsp;Rural development mgr</td>
+<td><input type="checkbox" id="voc92"  onclick="updateRem(92);">&emsp;Scientific research</td>
+<td><input type="checkbox" id="voc93"  onclick="updateRem(93);">&emsp;Soil Scientist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc94"  onclick="updateRem(94);">&emsp;Speech therapist</td>
+<td><input type="checkbox" id="voc95"  onclick="updateRem(95);">&emsp;Statistician/ economist</td>
+<td><input type="checkbox" id="voc96"  onclick="updateRem(96);">&emsp;Stock/investments</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc97"  onclick="updateRem(97);">&emsp;Structural Engineer</td>
+<td><input type="checkbox" id="voc98"  onclick="updateRem(98);">&emsp;Surgeon</td>
+<td><input type="checkbox" id="voc99"  onclick="updateRem(99);">&emsp;Systems analyst</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc100"  onclick="updateRem(100);">&emsp;Systems manager</td>
+<td><input type="checkbox" id="voc101"  onclick="updateRem(101);">&emsp;Tax consultant</td>
+<td><input type="checkbox" id="voc102"  onclick="updateRem(102);">&emsp;Teacher/educationist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc103"  onclick="updateRem(103);">&emsp;Team leader</td>
+<td><input type="checkbox" id="voc104"  onclick="updateRem(104);">&emsp;Theatre Set Designer</td>
+<td><input type="checkbox" id="voc105"  onclick="updateRem(105);">&emsp;Tourism guide</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc106"  onclick="updateRem(106);">&emsp;Trader/ dealer</td>
+<td><input type="checkbox" id="voc107"  onclick="updateRem(107);">&emsp;Training Administrator</td>
+<td><input type="checkbox" id="voc108"  onclick="updateRem(108);">&emsp;Travel agent/Executive</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc109"  onclick="updateRem(109);">&emsp;TV Script writer</td>
+<td><input type="checkbox" id="voc110"  onclick="updateRem(110);">&emsp;Veterinarian</td>
+<td><input type="checkbox" id="voc111"  onclick="updateRem(111);">&emsp;Wild life Specialist</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="voc112"  onclick="updateRem(112);">&emsp;Writer/ publisher</td>
+</tr>
+</table>  
+</div>
+<label style="color:red;font-size:12px">*There are 112 options. Make sure you scroll down and read all of them.</label>
+</td>
+<td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+<td>
+Number of choices remaining<br><br>
+<div style="font-size:30px" id="cr">&emsp;&emsp;&emsp;20</div>
+</td></tr>
+</table>
+<br>
+<a class="myButton" onclick="openVocTest1()">Continue</a>
+<div style="display:none"id="oocError">
+Sorry. You can select only 20 options.
+</div>
+</body>
+</html>

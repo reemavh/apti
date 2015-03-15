@@ -1,0 +1,1288 @@
+<html>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var remaining = -1;
+var inI2 = setInterval(showRemaining,1000);
+function showRemaining() {
+	if (remaining < 0)
+		return;
+	remaining--;
+	if(remaining==0) {		
+		clearInterval(inI2);
+		document.getElementById("words").style.display="none";
+		document.getElementById("time").style.display="none";
+		document.getElementById("epi").style.display="inline";
+	}
+	else {				
+		document.getElementById("time").innerHTML = "Time left:  <b>" + remaining%60 + " seconds </b>";
+	}
+}
+
+function start() {
+	remaining = 30;
+	document.getElementById("time").style.display="inline";
+	document.getElementById("words").style.display="inline";
+	document.getElementById("showb").style.display="none";
+}
+
+var remaining1 = -1;
+var inI1 = setInterval(showRemaining1,1000);
+function showRemaining1() {
+	if (remaining1 < 0)
+		return;
+	remaining1--;
+	if(remaining1==0) {		
+		clearInterval(inI1);
+		document.getElementById("ques").style.display="none";
+		document.getElementById("time1").style.display="none";
+		document.getElementById("epi1").style.display="inline";
+	}
+	else {				
+		document.getElementById("time1").innerHTML = "Time left:  <b>" + remaining1%60 + " seconds </b>";
+	}
+}
+
+function start1() {
+	remaining1 = 30;
+	document.getElementById("time1").style.display="inline";
+	document.getElementById("ques").style.display="inline";
+	document.getElementById("showb1").style.display="none";
+}
+</script>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label style="font-size:18px;color:#4f738e"><b>General Aptitude Questions</b></label></p>
+<div id="0" style="display:none;font-size:18px">
+<br>
+<p>We will now ask some multiple choice questions related to general aptitude.</p>
+<p>Press <b>Next</b> to start.</p>
+<br>
+<button style="width:6%;height:6%" onclick="begin()">Next</button> 
+
+</div>
+<div id="1" style="font-size:18px">
+	<label>When somebody suggests something to you, do you accept it easily?</label><br>
+    <p><input name="yesNo" type="radio" id="yn1y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn1n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(1)">Next</button>
+</div>
+<div id="2" style='display:none;font-size:18px'>
+	<label>Do you like sharing your problems with others?</label><br>
+    <p><input name="yesNo" type="radio" id="yn2y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn2n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(2)">Next</button>
+</div>
+<div id="3" style='display:none;font-size:18px'>
+	<label>Do you like doing things which involve your working with others?</label><br>
+    <p><input name="yesNo" type="radio" id="yn3y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn3n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(3)">Next</button>
+</div>
+<div id="4" style='display:none;font-size:18px'>
+	<label>Do you feel uncomfortable with strangers?</label><br>
+    <p><input name="yesNo" type="radio" id="yn4y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn4n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(4)">Next</button>
+</div>
+<div id="5" style='display:none;font-size:18px'>
+	<label>Do you care about others’ feelings?</label><br>
+    <p><input name="yesNo" type="radio" id="yn5y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn5n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(5)">Next</button>
+</div>
+<div id="6" style='display:none;font-size:18px'>
+	<label>When in company, do you avoid talking about yourself?</label><br>
+    <p><input name="yesNo" type="radio" id="yn6y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn6n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(6)">Next</button>
+</div>
+<div id="7" style='display:none;font-size:18px'>
+	<label>Do you have many friends?</label><br>
+    <p><input name="yesNo" type="radio" id="yn7y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn7n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(7)">Next</button>
+</div>
+<div id="8" style='display:none;font-size:18px'>
+	<label>When studying a particular subject, do you think about it as deeply as is humanly possible to do so?</label><br>
+    <p><input name="yesNo" type="radio" id="yn8y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn8n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(8)">Next</button>
+</div>
+<div id="9" style='display:none;font-size:18px'>
+	<label>When confronted with a problem, do you seek advice?</label><br>
+    <p><input name="yesNo" type="radio" id="yn9y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn9n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(9)">Next</button>
+</div>
+<div id="10" style='display:none;font-size:18px'>
+	<label>Do you have mood swings, fluctuating between happiness and sadness?</label><br>
+    <p><input name="yesNo" type="radio" id="yn10y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn10n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(10)">Next</button>
+</div>
+<div id="11" style='display:none;font-size:18px'>
+	<label>A person does something. You think he is right in doing what he did. However, society does not agree with either of you. 
+	<br>Will you side with the person or with society?</label><br>
+    <p><input name="yesNo" type="radio" id="yn11y" /><label>&nbsp;&nbsp;Man</label></p>
+    <p><input name="yesNo" type="radio" id="yn11n" /><label>&nbsp;&nbsp;Society</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(11)">Next</button>
+</div>
+<div id="12" style='display:none;font-size:18px'>
+	<label>Do you blush (become red in face, embarrassed) easily?</label><br>
+    <p><input name="yesNo" type="radio" id="yn12y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn12n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(12)">Next</button>
+</div>
+<div id="13" style='display:none;font-size:18px'>
+	<label>After starting a task, do you tend to give it up easily?</label><br>
+    <p><input name="yesNo" type="radio" id="yn13y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn13n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(13)">Next</button>
+</div>
+<div id="14" style='display:none;font-size:18px'>
+	<label>Are you extremely careful in whatever you do?</label><br>
+    <p><input name="yesNo" type="radio" id="yn14y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn14n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(14)">Next</button>
+</div>
+<div id="15" style='display:none;font-size:18px'>
+	<label>Do you dress in a careless way and neglect appearance?</label><br>
+    <p><input name="yesNo" type="radio" id="yn15y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn15n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(15)">Next</button>
+</div>
+<div id="16" style='display:none;font-size:18px'>
+	<label>At parties or gatherings, are you self-conscious about how you look?</label><br>
+    <p><input name="yesNo" type="radio" id="yn16y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn16n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(16)">Next</button>
+</div>
+<div id="17" style='display:none;font-size:18px'>
+	<label>Do you trust people easily?</label><br>
+    <p><input name="yesNo" type="radio" id="yn17y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn17n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(17)">Next</button>
+</div>
+<div id="18" style='display:none;font-size:18px'>
+	<label>Do you like talking about yourself?</label><br>
+    <p><input name="yesNo" type="radio" id="yn18y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn18n" /><label>&nbsp;&nbsp;No</label></p>
+	<button style="width:6%;height:6%" onclick="ieAns(18)">Next</button>
+</div>
+<div id="19" style='display:none;font-size:18px'>
+	<label>Do you like organizing parties?</label><br>
+    <p><input name="yesNo" type="radio" id="yn19y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn19n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(19)">Next</button>
+</div>
+<div id="20" style='display:none;font-size:18px'>
+	<label>Do you like to do deep thinking?</label><br>
+    <p><input name="yesNo" type="radio" id="yn20y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn20n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="ieAns(20)">Next</button>
+</div>
+<div id="21" style='display:none;font-size:18px'>
+	<label>You want to go and see a film. Your companion wants to see a drama, instead. Will you easily agree to your companion’s wishes?</label><br>
+    <p><input name="yesNo" type="radio" id="yn21y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn21n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(21)">Next</button>
+</div>
+<div id="22" style='display:none;font-size:18px'>
+	<label>Do you always see to it that you remain on the “safe” side?</label><br>
+    <p><input name="yesNo" type="radio" id="yn22y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn22n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(22)">Next</button>
+</div>
+<div id="23" style='display:none;font-size:18px'>
+	<label>You have a complaint against an organization. Will you try to meet the boss and tell him?</label><br>
+    <p><input name="yesNo" type="radio" id="yn23y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn23n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(23)">Next</button>
+</div>
+<div id="24" style='display:none;font-size:18px'>
+	<label>Do you like moving in high society or with groups of people?</label><br>
+    <p><input name="yesNo" type="radio" id="yn24y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn24n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(24)">Next</button>
+</div>
+<div id="25" style='display:none;font-size:18px'>
+	<label>Do you like to show off to others when you have something nice?</label><br>
+    <p><input name="yesNo" type="radio" id="yn25y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn25n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(25)">Next</button>
+</div>
+<div id="26" style='display:none;font-size:18px'>
+	<label>Do you like being the center of everybody’s attention?</label><br>
+    <p><input name="yesNo" type="radio" id="yn26y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn26n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(26)">Next</button>
+</div>
+<div id="27" style='display:none;font-size:18px'>
+	<label>Can you tolerate it if someone overtakes you in a queue?</label><br>
+    <p><input name="yesNo" type="radio" id="yn27y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn27n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(27)">Next</button>
+</div>
+<div id="28" style='display:none;font-size:18px'>
+	<label>When shopping, do you pay whatever the shopkeeper asks?</label><br>
+    <p><input name="yesNo" type="radio" id="yn28y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn28n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(28)">Next</button>
+</div>
+<div id="29" style='display:none;font-size:18px'>
+	<label>Do you accept other’s suggestions and ideas easily?</label><br>
+    <p><input name="yesNo" type="radio" id="yn29y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn29n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(29)">Next</button>
+</div>
+<div id="30" style='display:none;font-size:18px'>
+	<label>Will you suffer an injustice in silence?</label><br>
+    <p><input name="yesNo" type="radio" id="yn30y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn30n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(30)">Next</button>
+</div>
+<div id="31" style='display:none;font-size:18px'>
+	<label>When taking a decision, do you think about what the other person wants or needs?</label><br>
+    <p><input name="yesNo" type="radio" id="yn31y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn31n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(31)">Next</button>
+</div>
+<div id="32" style='display:none;font-size:18px'>
+	<label>Are you cautious and careful in whatever you do?</label><br>
+    <p><input name="yesNo" type="radio" id="yn32y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn32n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(32)">Next</button>
+</div>
+<div id="33" style='display:none;font-size:18px'>
+	<label>Do you expect people to accept all you say or do?</label><br>
+    <p><input name="yesNo" type="radio" id="yn33y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn33n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(33)">Next</button>
+</div>
+<div id="34" style='display:none;font-size:18px'>
+	<label>Do you enjoy being in an advantageous or superior position?</label><br>
+    <p><input name="yesNo" type="radio" id="yn34y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn34n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(34)">Next</button>
+</div>
+<div id="35" style='display:none;font-size:18px'>
+	<label>Do you like to be in positions that make you noticeable/visible?</label><br>
+    <p><input name="yesNo" type="radio" id="yn35y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn35n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(35)">Next</button>
+</div>
+<div id="36" style='display:none;font-size:18px'>
+	<label>Do you want to conquer the world?</label><br>
+    <p><input name="yesNo" type="radio" id="yn36y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn36n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(36)">Next</button>
+</div>
+<div id="37" style='display:none;font-size:18px'>
+	<label>Do you think you can win over others and convince them?</label><br>
+    <p><input name="yesNo" type="radio" id="yn37y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn37n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(37)">Next</button>
+</div>
+<div id="38" style='display:none;font-size:18px'>
+	<label>Do you like to participate in politics or competitive activities?</label><br>
+    <p><input name="yesNo" type="radio" id="yn38y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn38n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(38)">Next</button>
+</div>
+<div id="39" style='display:none;font-size:18px'>
+	<label>Do you like the thought of spending your life as an accountant?</label><br>
+    <p><input name="yesNo" type="radio" id="yn39y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn39n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(39)">Next</button>
+</div>
+<div id="40" style='display:none;font-size:18px'>
+	<label>Do you think you are good looking, intelligent and brave?</label><br>
+    <p><input name="yesNo" type="radio" id="yn40y" /><label>&nbsp;&nbsp;Yes</label></p>
+    <p><input name="yesNo" type="radio" id="yn40n" /><label>&nbsp;&nbsp;No</label></p>
+    <button style="width:6%;height:6%" onclick="dsAns(40)">Next</button>
+</div>
+<div id="41" style='display:none;font-size:18px'>
+	<label>Do you like new ideas?</label><br>
+    <p><input name="asmv" type="radio" id="asmv41a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv41s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv41m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv41v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(41)">Next</button>
+</div>
+<div id="42" style='display:none;font-size:18px'>
+	<label>In a gathering, do people look at you admiringly?</label><br>
+    <p><input name="asmv" type="radio" id="asmv42a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv42s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv42m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv42v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(42)">Next</button>
+</div>
+<div id="43" style='display:none;font-size:18px'>
+	<label>Do you always like playing safe?</label><br>
+    <p><input name="asmv" type="radio" id="asmv43a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv43s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv43m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv43v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(43)">Next</button>
+</div>
+<div id="44" style='display:none;font-size:18px'>
+	<label>Do you feel extremely shy in the company of strangers?</label><br>
+    <p><input name="asmv" type="radio" id="asmv44a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv44s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv44m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv44v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(44)">Next</button>
+</div>
+<div id="45" style='display:none;font-size:18px'>
+	<label>Do you go out of your way to correct your mistakes?</label><br>
+    <p><input name="asmv" type="radio" id="asmv45a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv45s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv45m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv45v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(45)">Next</button>
+</div>
+<div id="46" style='display:none;font-size:18px'>
+	<label>Can you judge a person in the first meeting itself?</label><br>
+    <p><input name="asmv" type="radio" id="asmv46a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv46s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv46m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv46v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(46)">Next</button>
+</div>
+<div id="47" style='display:none;font-size:18px'>
+	<label>Do you want to see a problem through to its ultimate solution?</label><br>
+    <p><input name="asmv" type="radio" id="asmv47a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv47s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv47m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv47v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(47)">Next</button>
+</div>
+<div id="48" style='display:none;font-size:18px'>
+	<label>Given many facts, can you spot the relevant ones quickly?</label><br>
+    <p><input name="asmv" type="radio" id="asmv48a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv48s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv48m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv48v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(48)">Next</button>
+</div>
+<div id="49" style='display:none;font-size:18px'>
+	<label>Do you like competing with your team members?</label><br>
+    <p><input name="asmv" type="radio" id="asmv49a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv49s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv49m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv49v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(49)">Next</button>
+</div>
+<div id="50" style='display:none;font-size:18px'>
+	<label>Can you keep a cool mind when in a crisis?</label><br>
+    <p><input name="asmv" type="radio" id="asmv50a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv50s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv50m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv50v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(50)">Next</button>
+</div>
+<div id="51" style='display:none;font-size:18px'>
+	<label>Do you like to postpone taking a decision if you are not confident?</label><br>
+    <p><input name="asmv" type="radio" id="asmv51a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv51s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv51m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv51v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(51)">Next</button>
+</div>
+<div id="52" style='display:none;font-size:18px'>
+	<label>When solving a problem, do you evaluate it from all angles?</label><br>
+    <p><input name="asmv" type="radio" id="asmv52a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv52s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv52m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv52v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(52)">Next</button>
+</div>
+<div id="53" style='display:none;font-size:18px'>
+	<label>Do you keep your temper under control?</label><br>
+    <p><input name="asmv" type="radio" id="asmv53a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv53s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv53m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv53v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(53)">Next</button>
+</div>
+<div id="54" style='display:none;font-size:18px'>
+	<label>Are you careful in saying things which can hurt others?</label><br>
+    <p><input name="asmv" type="radio" id="asmv54a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv54s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv54m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv54v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(54)">Next</button>
+</div>
+<div id="55" style='display:none;font-size:18px'>
+	<label>Can people hurt you very easily?</label><br>
+    <p><input name="asmv" type="radio" id="asmv55a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv55s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv55m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv55v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(55)">Next</button>
+</div>
+<div id="56" style='display:none;font-size:18px'>
+	<label>Do your find that at times your friends turn against you?</label><br>
+    <p><input name="asmv" type="radio" id="asmv56a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv56s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv56m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv56v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(56)">Next</button>
+</div>
+<div id="57" style='display:none;font-size:18px'>
+	<label>Do you blush easily, to the extent that it embarrasses you?</label><br>
+    <p><input name="asmv" type="radio" id="asmv57a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv57s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv57m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv57v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(57)">Next</button>
+</div>
+<div id="58" style='display:none;font-size:18px'>
+	<label>Do you like day-dreaming?</label><br>
+    <p><input name="asmv" type="radio" id="asmv58a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv58s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv58m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv58v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(58)">Next</button>
+</div>
+<div id="59" style='display:none;font-size:18px'>
+	<label>Are you always systematic in whatever you do?</label><br>
+    <p><input name="asmv" type="radio" id="asmv59a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv59s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv59m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv59v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(59)">Next</button>
+</div>
+<div id="60" style='display:none;font-size:18px'>
+	<label>When in a tight-corner, do you feel helpless most of the time?</label><br>
+    <p><input name="asmv" type="radio" id="asmv60a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv60s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv60m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv60v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(60)">Next</button>
+</div>
+<div id="61" style='display:none;font-size:18px'>
+	<label>Do you like organizing parties, etc?</label><br>
+    <p><input name="asmv" type="radio" id="asmv61a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv61s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv61m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv61v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(61)">Next</button>
+</div>
+<div id="62" style='display:none;font-size:18px'>
+	<label>Would you like to be an explorer/leader in your field of work?</label><br>
+    <p><input name="asmv" type="radio" id="asmv62a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv62s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv62m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv62v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(62)">Next</button>
+</div>
+<div id="63" style='display:none;font-size:18px'>
+	<label>When talking, do you find that you have to repeat yourself often?</label><br>
+    <p><input name="asmv" type="radio" id="asmv63a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv63s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv63m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv63v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(63)">Next</button>
+</div>
+<div id="64" style='display:none;font-size:18px'>
+	<label>Are you given to fits of worrying and moodiness?</label><br>
+    <p><input name="asmv" type="radio" id="asmv64a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv64s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv64m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv64v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(64)">Next</button>
+</div>
+<div id="65" style='display:none;font-size:18px'>
+	<label>Do you think all businessmen are always crooks?</label><br>
+    <p><input name="asmv" type="radio" id="asmv65a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="asmv" type="radio" id="asmv65s" /><label>&nbsp;&nbsp;Mostly</label></p>
+    <p><input name="asmv" type="radio" id="asmv65m" /><label>&nbsp;&nbsp;Sometimes</label></p>
+    <p><input name="asmv" type="radio" id="asmv65v" /><label>&nbsp;&nbsp;Very Rarely</label></p>
+    <button style="width:6%;height:6%" onclick="bmAns(65)">Next</button>
+</div>
+<div id="66" style='display:none;font-size:18px'>
+	<label>I look at a clock or watch, check timing.</label><br>
+    <p><input name="aorn" type="radio" id="aorn66a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn66o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn66r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn66n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(66)">Next</button>
+</div>
+<div id="67" style='display:none;font-size:18px'>
+	<label>I keep a journal or diary of my thoughts.</label><br>
+    <p><input name="aorn" type="radio" id="aorn67a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn67o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn67r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn67n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(67)">Next</button>
+</div>
+<div id="68" style='display:none;font-size:18px'>
+	<label>I believe there is either a right or wrong way to do everything.</label><br>
+    <p><input name="aorn" type="radio" id="aorn68a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn68o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn68r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn68n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(68)">Next</button>
+</div>
+<div id="69" style='display:none;font-size:18px'>
+	<label>I find it hard to follow directions precisely.</label><br>
+    <p><input name="aorn" type="radio" id="aorn69a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn69o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn69r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn69n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(69)">Next</button>
+</div>
+<div id="70" style='display:none;font-size:18px'>
+	<label>I do not agree with the expression “variety is the spice of life”.</label><br>
+    <p><input name="aorn" type="radio" id="aorn70a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn70o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn70r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn70n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(70)">Next</button>
+</div>
+<div id="71" style='display:none;font-size:18px'>
+	<label>I change my plans and find that sticking to a schedule is boring.</label><br>
+    <p><input name="aorn" type="radio" id="aorn71a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn71o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn71r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn71n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(71)">Next</button>
+</div>
+<div id="72" style='display:none;font-size:18px'>
+	<label>I think it’s easier to draw a map than tell someone how to get somewhere.</label><br>
+    <p><input name="aorn" type="radio" id="aorn72a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn72o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn72r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn72n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(72)">Next</button>
+</div>
+<div id="73" style='display:none;font-size:18px'>
+	<label>To find a lost item, I picture it in my head where I last saw it.</label><br>
+    <p><input name="aorn" type="radio" id="aorn73a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn73o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn73r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn73n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(73)">Next</button>
+</div>
+<div id="74" style='display:none;font-size:18px'>
+	<label>I let my emotions guide me, without worrying about consequences.</label><br>
+    <p><input name="aorn" type="radio" id="aorn74a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn74o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn74r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn74n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(74)">Next</button>
+</div>
+<div id="75" style='display:none;font-size:18px'>
+	<label>I learn my maths with ease and enjoy doing calculations.</label><br>
+    <p><input name="aorn" type="radio" id="aorn75a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn75o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn75r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn75n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(75)">Next</button>
+</div>
+<div id="76" style='display:none;font-size:18px'>
+	<label>I read instructions carefully before operating a gadget.</label><br>
+    <p><input name="aorn" type="radio" id="aorn76a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn76o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn76r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn76n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(76)">Next</button>
+</div>
+<div id="77" style='display:none;font-size:18px'>
+	<label>People tell me I am always late reaching places.</label><br>
+    <p><input name="aorn" type="radio" id="aorn77a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn77o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn77r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn77n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(77)">Next</button>
+</div>
+<div id="78" style='display:none;font-size:18px'>
+	<label>People tell that I can see beyond the obvious, think differently.</label><br>
+    <p><input name="aorn" type="radio" id="aorn78a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn78o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn78r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn78n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(78)">Next</button>
+</div>
+<div id="79" style='display:none;font-size:18px'>
+	<label>I need to set goals for myself to keep in track.</label><br>
+    <p><input name="aorn" type="radio" id="aorn79a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn79o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn79r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn79n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(79)">Next</button>
+</div>
+<div id="80" style='display:none;font-size:18px'>
+	<label>When somebody asks me a question, I turn my head to the left.</label><br>
+    <p><input name="aorn" type="radio" id="aorn80a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn80o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn80r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn80n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(80)">Next</button>
+</div>
+<div id="81" style='display:none;font-size:18px'>
+	<label>If I have a tough decision to make, I write down pros and cons.</label><br>
+    <p><input name="aorn" type="radio" id="aorn81a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn81o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn81r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn81n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(81)">Next</button>
+</div>
+<div id="82" style='display:none;font-size:18px'>
+	<label>I’d probably make a good detective or investigator.</label><br>
+    <p><input name="aorn" type="radio" id="aorn82a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn82o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn82r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn82n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(82)">Next</button>
+</div>
+<div id="83" style='display:none;font-size:18px'>
+	<label>I pick up music with ease whenever I try it out.</label><br>
+    <p><input name="aorn" type="radio" id="aorn83a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn83o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn83r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn83n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(83)">Next</button>
+</div>
+<div id="84" style='display:none;font-size:18px'>
+	<label>To solve a problem, I recollect similar situations I faced earlier</label><br>
+    <p><input name="aorn" type="radio" id="aorn84a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn84o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn84r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn84n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(84)">Next</button>
+</div>
+<div id="85" style='display:none;font-size:18px'>
+	<label>I use a lot of gestures and hand movements.</label><br>
+    <p><input name="aorn" type="radio" id="aorn85a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn85o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn85r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn85n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(85)">Next</button>
+</div>
+<div id="86" style='display:none;font-size:18px'>
+	<label>If someone asks me a question, I turn my head to the right.</label><br>
+    <p><input name="aorn" type="radio" id="aorn86a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn86o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn86r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn86n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(86)">Next</button>
+</div>
+<div id="87" style='display:none;font-size:18px'>
+	<label>I believe that there are two ways to look at almost everything.</label><br>
+    <p><input name="aorn" type="radio" id="aorn87a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn87o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn87r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn87n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(87)">Next</button>
+</div>
+<div id="88" style='display:none;font-size:18px'>
+	<label>I have the ability to tell if people are lying or guilty of something.</label><br>
+    <p><input name="aorn" type="radio" id="aorn88a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn88o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn88r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn88n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(88)">Next</button>
+</div>
+<div id="89" style='display:none;font-size:18px'>
+	<label>I keep a “to do” list and refer to it regularly.</label><br>
+    <p><input name="aorn" type="radio" id="aorn89a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn89o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn89r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn89n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(89)">Next</button>
+</div>
+<div id="90" style='display:none;font-size:18px'>
+	<label>I am able to thoroughly explain my opinions in words.</label><br>
+    <p><input name="aorn" type="radio" id="aorn90a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn90o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn90r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn90n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(90)">Next</button>
+</div>
+<div id="91" style='display:none;font-size:18px'>
+	<label>In a debate, I am objective and look at the facts before forming an opinion.</label><br>
+    <p><input name="aorn" type="radio" id="aorn91a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn91o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn91r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn91n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(91)">Next</button>
+</div>
+<div id="92" style='display:none;font-size:18px'>
+	<label>I’ve tried out at least one of these: poetry, design, dance, debates.</label><br>
+    <p><input name="aorn" type="radio" id="aorn92a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn92o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn92r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn92n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(92)">Next</button>
+</div>
+<div id="93" style='display:none;font-size:18px'>
+	<label>I lose track of time when I am involved in some activity.</label><br>
+    <p><input name="aorn" type="radio" id="aorn93a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn93o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn93r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn93n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(93)">Next</button>
+</div>
+<div id="94" style='display:none;font-size:18px'>
+	<label>When trying to remember a name I forgot, I recite the alphabet or look for similarity or connections.</label><br>
+    <p><input name="aorn" type="radio" id="aorn94a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn94o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn94r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn94n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(94)">Next</button>
+</div>
+<div id="95" style='display:none;font-size:18px'>
+	<label>I like to draw, doodle, paint, or create objects of art.</label><br>
+    <p><input name="aorn" type="radio" id="aorn95a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn95o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn95r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn95n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(95)">Next</button>
+</div>
+<div id="96" style='display:none;font-size:18px'>
+	<label>When I’m confused, I usually go with my gut instinct.</label><br>
+    <p><input name="aorn" type="radio" id="aorn96a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn96o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn96r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn96n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(96)">Next</button>
+</div>
+<div id="97" style='display:none;font-size:18px'>
+	<label>I like the work that is done by lawyers, journalists, or doctors.</label><br>
+    <p><input name="aorn" type="radio" id="aorn97a" /><label>&nbsp;&nbsp;Always</label></p>
+    <p><input name="aorn" type="radio" id="aorn97o" /><label>&nbsp;&nbsp;Often</label></p>
+    <p><input name="aorn" type="radio" id="aorn97r" /><label>&nbsp;&nbsp;Rarely</label></p>
+    <p><input name="aorn" type="radio" id="aorn97n" /><label>&nbsp;&nbsp;Never</label></p>
+    <button style="width:6%;height:6%" onclick="blrAns(97)">Next</button>
+</div>
+<!-- TIQ starts -->
+<div id="98" style='display:none;font-size:18px'>
+	<label>When asked how many currency notes he possessed, a man answered, “if I divide them by 2,3,4,5 and 6, I shall always have one left”.
+     <br>How many did he have?</label><br>
+    <p><input name="abcde" type="radio" id="tiq98a" /><label>&nbsp;&nbsp;30</label></p>
+    <p><input name="abcde" type="radio" id="tiq98b" /><label>&nbsp;&nbsp;35</label></p>
+    <p><input name="abcde" type="radio" id="tiq98c" /><label>&nbsp;&nbsp;45</label></p>
+    <p><input name="abcde" type="radio" id="tiq98d" /><label>&nbsp;&nbsp;55</label></p>
+    <p><input name="abcde" type="radio" id="tiq98e" /><label>&nbsp;&nbsp;61</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(98)">Next</button>
+</div>
+<div id="99" style='display:none;font-size:18px'>
+    <label>Which of the following is the <i>odd-man-out</i>?</label><br>
+    <p><input name="abcde" type="radio" id="tiq99a" /><label>&nbsp;&nbsp;Hyderabad</label></p>
+    <p><input name="abcde" type="radio" id="tiq99b" /><label>&nbsp;&nbsp;Patna</label></p>
+    <p><input name="abcde" type="radio" id="tiq99c" /><label>&nbsp;&nbsp;Gandhinagar</label></p>
+    <p><input name="abcde" type="radio" id="tiq99d" /><label>&nbsp;&nbsp;Jammu</label></p>
+    <p><input name="abcde" type="radio" id="tiq99e" /><label>&nbsp;&nbsp;Shillong</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(99)">Next</button>
+</div>
+<div id="100" style='display:none;font-size:18px'>
+    <label>A frog is at the bottom of a well 60 meters deep. Every day he jumps up 3 meters and slides back 2. 
+      <br>How many days will it take to get out?</label><br>
+    <p><input name="abcde" type="radio" id="tiq100a" /><label>&nbsp;&nbsp;120 days</label></p>
+    <p><input name="abcde" type="radio" id="tiq100b" /><label>&nbsp;&nbsp;60 days</label></p>
+    <p><input name="abcde" type="radio" id="tiq100c" /><label>&nbsp;&nbsp;75 days</label></p>
+    <p><input name="abcde" type="radio" id="tiq100d" /><label>&nbsp;&nbsp;58 days</label></p>
+    <p><input name="abcde" type="radio" id="tiq100e" /><label>&nbsp;&nbsp;68 days</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(100)">Next</button>
+</div>
+<div id="101" style='display:none;font-size:18px'>
+    <label>Which is the capital of Uttarkhand state?</label><br>
+    <p><input name="abcde" type="radio" id="tiq101a" /><label>&nbsp;&nbsp;Agra</label></p>
+    <p><input name="abcde" type="radio" id="tiq101b" /><label>&nbsp;&nbsp;Lucknow</label></p>
+    <p><input name="abcde" type="radio" id="tiq101c" /><label>&nbsp;&nbsp;Meerut</label></p>
+    <p><input name="abcde" type="radio" id="tiq101d" /><label>&nbsp;&nbsp;Dehradun</label></p>
+    <p><input name="abcde" type="radio" id="tiq101e" /><label>&nbsp;&nbsp;Mathura</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(101)">Next</button>
+</div>
+<div id="102" style='display:none;font-size:18px'>
+    <label>A and B made a bet as to who could eat more cherries. A ate ninety nine and B hundred and won. How many did B eat more than A?</label><br>
+    <p><input name="abcde" type="radio" id="tiq102a" /><label>&nbsp;&nbsp;5</label></p>
+    <p><input name="abcde" type="radio" id="tiq102b" /><label>&nbsp;&nbsp;7</label></p>
+    <p><input name="abcde" type="radio" id="tiq102c" /><label>&nbsp;&nbsp;1</label></p>
+    <p><input name="abcde" type="radio" id="tiq102d" /><label>&nbsp;&nbsp;2</label></p>
+    <p><input name="abcde" type="radio" id="tiq102e" /><label>&nbsp;&nbsp;3</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(102)">Next</button>
+</div>
+<div id="103" style='display:none;font-size:18px'>
+    <label>Who is the inventor of Hotmail?</label><br>
+    <p><input name="abcde" type="radio" id="tiq103a" /><label>&nbsp;&nbsp;Jack Austra</label></p>
+    <p><input name="abcde" type="radio" id="tiq103b" /><label>&nbsp;&nbsp;Sabeer Bhatia</label></p>
+    <p><input name="abcde" type="radio" id="tiq103c" /><label>&nbsp;&nbsp;Bill Gates</label></p>
+    <p><input name="abcde" type="radio" id="tiq103d" /><label>&nbsp;&nbsp;Narayan Murthy</label></p>
+    <p><input name="abcde" type="radio" id="tiq103e" /><label>&nbsp;&nbsp;A team in Microsoft</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(103)">Next</button>
+</div>
+<div id="104" style='display:none;font-size:18px'>
+    <label><i>Book</i> : <i>Paper</i>  as  <i>Shirt</i> : (?)</label><br>
+    <p><input name="abcde" type="radio" id="tiq104a" /><label>&nbsp;&nbsp;Tailor</label></p>
+    <p><input name="abcde" type="radio" id="tiq104b" /><label>&nbsp;&nbsp;Button</label></p>
+    <p><input name="abcde" type="radio" id="tiq104c" /><label>&nbsp;&nbsp;Sewing</label></p>
+    <p><input name="abcde" type="radio" id="tiq104d" /><label>&nbsp;&nbsp;Cloth</label></p>
+    <p><input name="abcde" type="radio" id="tiq104e" /><label>&nbsp;&nbsp;Ironing</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(104)">Next</button>
+</div>
+<div id="105" style='display:none;font-size:18px'>
+	Consider these two sets of triplets
+	<table>
+	<tr><td><b>Set 1:&emsp;</b></td><td>CAP&emsp;</td><td>GAP&emsp;</td><td>GAG&emsp;</td><td>RIP&emsp;</td><td>SIR&emsp;</td></tr>  
+	<tr><td><b>Set 2:&emsp;</b></td><td>642</td><td>746</td><td>313</td><td>312</td><td>012</td></tr>
+	</table>
+	<br><p>Please match each triplet in Set 1 with a triplet in Set 2(<i>Hint:Each number in set 2 stands for a letter in set 1)</i>.</p>
+	<table style='font-size:18px'>	
+		<tr><td>CAP</td><td>&emsp;matches&emsp;</td><td><select id="mcol1"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
+		<tr><td>GAP</td><td>&emsp;matches&emsp;</td><td><select id="mcol2"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
+		<tr><td>GAG</td><td>&emsp;matches&emsp;</td><td><select id="mcol3"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>		
+		<tr><td>RIP</td><td>&emsp;matches&emsp;</td><td><select id="mcol4"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
+		<tr><td>SIR</td><td>&emsp;matches&emsp;</td><td><select id="mcol5"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
+	</table>    
+	<br>
+	<button style="width:6%;height:6%" onclick="tiqAns(105)">Next</button>
+</div>
+<div id="106" style='display:none;font-size:18px'>
+    <label><i>Inhabitant</i> : <i>Habitation</i>  as  <i>Monk</i> : (?)</label><br>
+    <p><input name="abcde" type="radio" id="tiq106a" /><label>&nbsp;&nbsp;Dormitory</label></p>
+    <p><input name="abcde" type="radio" id="tiq106b" /><label>&nbsp;&nbsp;Chapel</label></p>
+    <p><input name="abcde" type="radio" id="tiq106c" /><label>&nbsp;&nbsp;Grottoe</label></p>
+    <p><input name="abcde" type="radio" id="tiq106d" /><label>&nbsp;&nbsp;Monastery</label></p>
+    <p><input name="abcde" type="radio" id="tiq106e" /><label>&nbsp;&nbsp;Nunnery</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(106)">Next</button>
+</div>
+<div id="107" style='display:none;font-size:18px'>
+    <label>When directions are shown in a map with an arrow like this, which way is East?</label><br>
+    <img src="http://i.imgur.com/QSkNtER.png" alt="Loading image..." >
+    <p><input name="abcde" type="radio" id="tiq107a" /><label>&nbsp;&nbsp;A</label></p>
+    <p><input name="abcde" type="radio" id="tiq107b" /><label>&nbsp;&nbsp;B</label></p>
+    <p><input name="abcde" type="radio" id="tiq107c" /><label>&nbsp;&nbsp;C</label></p>
+    <p><input name="abcde" type="radio" id="tiq107d" /><label>&nbsp;&nbsp;D</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(107)">Next</button>
+</div>
+<div id="108" style='display:none;font-size:18px'>
+    <label>The word <b>wraith</b> belongs to the class of</label><br>
+    <p><input name="abcde" type="radio" id="tiq108a" /><label>&nbsp;&nbsp;Verbs</label></p>
+    <p><input name="abcde" type="radio" id="tiq108b" /><label>&nbsp;&nbsp;Participles</label></p>
+    <p><input name="abcde" type="radio" id="tiq108c" /><label>&nbsp;&nbsp;Nouns</label></p>
+    <p><input name="abcde" type="radio" id="tiq108d" /><label>&nbsp;&nbsp;Adjectives</label></p>
+    <p><input name="abcde" type="radio" id="tiq108e" /><label>&nbsp;&nbsp;Adverbs</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(108)">Next</button>
+</div>
+<div id="109" style='display:none;font-size:18px'>
+    <label>What among these is the <i>odd-man-out</i>?</label><br>
+    <p><input name="abcde" type="radio" id="tiq109a" /><label>&nbsp;&nbsp;M.Sc</label></p>
+    <p><input name="abcde" type="radio" id="tiq109b" /><label>&nbsp;&nbsp;MBBS</label></p>
+    <p><input name="abcde" type="radio" id="tiq109c" /><label>&nbsp;&nbsp;B.Sc</label></p>
+    <p><input name="abcde" type="radio" id="tiq109d" /><label>&nbsp;&nbsp;B.Com</label></p>
+    <p><input name="abcde" type="radio" id="tiq109e" /><label>&nbsp;&nbsp;B.Tech</label></p>
+    <button style="width:6%;height:6%" onclick="tiqAns(109)">Next</button>
+</div>
+<div id="110" style='display:none;font-size:18px'>
+    <label>What number can fill in this blank?</label><br>
+    <br>70, 11, 81, 92,  ___ , 265
+    <br><br><p>Enter your answer in this box:</p>
+    <textarea id="tiq110" rows="1" cols="5"></textarea>
+    <br><br><button style="width:6%;height:6%" onclick="tiqAns(110)">Next</button>
+</div>
+<div id="111" style='display:none;font-size:18px'>
+    <label>Which letter can fill in the blank below?</label><br>
+    <table>
+    <tr><td>A&emsp;</td><td>D&emsp;</td><td>G&emsp;</td></tr>
+    <tr><td>J&emsp;</td><td>M&emsp;</td><td>P&emsp;</td></tr>
+    <tr><td>S&emsp;</td><td>V&emsp;</td><td>_&emsp;</td></tr>
+    </table>
+    <br><p>Enter your answer in this box:</p>
+	<textarea id="tiq111" rows="1" cols="10"></textarea>
+    <br><br><button style="width:6%;height:6%" onclick="tiqAns(111)">Next</button>
+</div>
+<div id="112" style='display:none;font-size:18px'>
+	<p>Observe these two sets of dots. There is a blank line after them.</p>
+    <img width="200" height="100" src="http://i.imgur.com/9YGFyLz.png" alt="Loading image...">
+    <p>Which one of these sets can fill in the blank line above?</p>	
+	<table>
+		<tr><td><input type="radio" id="tiq112a"></td><td><img width="100" height="20" src="http://i.imgur.com/7L5S5TE.png" /></td></tr>
+		<tr><td><br></td></tr>
+		<tr><td><input type="radio" id="tiq112b"></td><td><img width="100" height="20" src="http://i.imgur.com/kBdIpLT.png" /></td></tr>
+		<tr><td><br></td></tr>
+		<tr><td><input type="radio" id="tiq112c"></td><td><img width="100" height="20" src="http://i.imgur.com/kSCpK1Z.png" /></td></tr>
+	</table>
+	<br>
+    <button style="width:6%;height:6%" onclick="tiqAns(112)">Next</button>
+</div>
+<!-- TIQ ends-->
+<!-- GATM starts -->
+<div id="113" style='display:none;font-size:18px'>
+    <label>What is the relationship between 2 and 100, apart from their being even number ?</label><br>
+    <p><input name="abcde" type="radio" id="gatm113a" /><label>&nbsp;&nbsp;2 is the prime number of 1</label></p>
+    <p><input name="abcde" type="radio" id="gatm113b" /><label>&nbsp;&nbsp;100 is the cube of 2 multiplied by 10</label></p>
+    <p><input name="abcde" type="radio" id="gatm113c" /><label>&nbsp;&nbsp;2 is the log of 100</label></p>
+    <p><input name="abcde" type="radio" id="gatm113d" /><label>&nbsp;&nbsp;There is no relationship</label></p>
+    <p><input name="abcde" type="radio" id="gatm113e" /><label>&nbsp;&nbsp;Both are Parkinson’s number</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(113)">Next</button>
+</div>
+<div id="114" style='display:none;font-size:18px'>
+    <label>Fill in the blank</label><br>
+    <table>
+    <tr><td>6&emsp;</td><td>2&emsp;</td><td>4</td></tr>
+    <tr><td>5&emsp;</td><td>1&emsp;</td><td>3</td></tr>
+    <tr><td>8&emsp;</td><td>0&emsp;</td><td>4</td></tr>
+    <tr><td>6&emsp;</td><td>8&emsp;</td><td>7</td></tr>
+    <tr><td>7&emsp;</td><td>7&emsp;</td><td>?</td></tr>    
+    </table>
+    <br><br>Enter your answer here:
+    <br><textarea rows="1" cols="10" id="gatm114"></textarea>
+    <br><br><button style="width:6%;height:6%" onclick="gatmAns(114)">Next</button>
+</div>
+<div id="115" style='display:none;font-size:18px'>
+    <label>A rectangular carpet has an area of 60 square feet. Its diagonal + its longer side is equal to five times the length of its shorter side. 
+    <br>What are its dimensions?</label><br>
+    <p><input name="abcde" type="radio" id="gatm115a" /><label>&nbsp;&nbsp;Shorter side-4 ft, longer side-6 ft,  diagonal-10 ft</label></p>
+    <p><input name="abcde" type="radio" id="gatm115b" /><label>&nbsp;&nbsp;Shorter side-6 ft, longer side-8 ft,  diagonal-12 ft</label></p>
+    <p><input name="abcde" type="radio" id="gatm115c" /><label>&nbsp;&nbsp;Shorter side-5 ft, longer side-12 ft, diagonal-13 ft</label></p>
+    <p><input name="abcde" type="radio" id="gatm115d" /><label>&nbsp;&nbsp;Shorter side-7 ft, longer side-15 ft, diagonal-12 ft</label></p>
+    <p><input name="abcde" type="radio" id="gatm115e" /><label>&nbsp;&nbsp;Shorter side-9 ft, longer side-17 ft, diagonal-24 ft</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(115)">Next</button>
+</div>
+<div id="116" style='display:none;font-size:18px'>
+    <label>A box has 5 red and 4 blue marbles. In how many can 4 marbles be drawn so as to contain 2 red marbles?</label><br>
+    <p><input name="abcde" type="radio" id="gatm116a" /><label>&nbsp;&nbsp;9</label></p>
+    <p><input name="abcde" type="radio" id="gatm116b" /><label>&nbsp;&nbsp;126</label></p>
+    <p><input name="abcde" type="radio" id="gatm116c" /><label>&nbsp;&nbsp;10</label></p>
+    <p><input name="abcde" type="radio" id="gatm116d" /><label>&nbsp;&nbsp;60</label></p>
+    <p><input name="abcde" type="radio" id="gatm116e" /><label>&nbsp;&nbsp;35</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(116)">Next</button>
+</div>
+<div id="117" style='display:none;font-size:18px'>
+    <label>How will you express 2/7 in decimal fractions?</label><br>
+    <p><input name="abcde" type="radio" id="gatm117a" /><label>&nbsp;&nbsp;0.142857</label></p>
+    <p><input name="abcde" type="radio" id="gatm117b" /><label>&nbsp;&nbsp;0.242857</label></p>
+    <p><input name="abcde" type="radio" id="gatm117c" /><label>&nbsp;&nbsp;0.285614</label></p>
+    <p><input name="abcde" type="radio" id="gatm117d" /><label>&nbsp;&nbsp;0.266717</label></p>
+    <p><input name="abcde" type="radio" id="gatm117e" /><label>&nbsp;&nbsp;0.265616</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(117)">Next</button>
+</div>
+<div id="118" style='display:none;font-size:18px'>
+    <label>Cards marked numbers 0,1,2,3 are randomly arranged in a row so as to form a number. 
+	<br>Find the probability that the number formed is an odd number.</label><br>
+    <p><input name="abcde" type="radio" id="gatm118a" /><label>&nbsp;&nbsp;100%</label></p>
+    <p><input name="abcde" type="radio" id="gatm118b" /><label>&nbsp;&nbsp;50%</label></p>
+    <p><input name="abcde" type="radio" id="gatm118c" /><label>&nbsp;&nbsp;25%</label></p>
+    <p><input name="abcde" type="radio" id="gatm118d" /><label>&nbsp;&nbsp;75%</label></p>
+    <p><input name="abcde" type="radio" id="gatm118e" /><label>&nbsp;&nbsp;Nil</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(118)">Next</button>
+</div>
+<div id="119" style='display:none;font-size:18px'>
+    <label>A rectangular carpet has an  areas of 120 sq. feet. and a perimeter of 46 feet. What is the length of its diagonals? </label><br>
+    <p><input name="abcde" type="radio" id="gatm119a" /><label>&nbsp;&nbsp;15 feet</label></p>
+    <p><input name="abcde" type="radio" id="gatm119b" /><label>&nbsp;&nbsp;14 feet</label></p>
+    <p><input name="abcde" type="radio" id="gatm119c" /><label>&nbsp;&nbsp;17 feet</label></p>
+    <p><input name="abcde" type="radio" id="gatm119d" /><label>&nbsp;&nbsp;16 feet</label></p>
+    <p><input name="abcde" type="radio" id="gatm119e" /><label>&nbsp;&nbsp;19 feet</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(119)">Next</button>
+</div>
+<div id="120" style='display:none;font-size:18px'>
+    <label>What are the odds against your drawing, from an ordinary pack of 52 playing cards, four cards of the same suit?</label><br>
+    <p><input name="abcde" type="radio" id="gatm120a" /><label>&nbsp;&nbsp;9 to 1</label></p>
+    <p><input name="abcde" type="radio" id="gatm120b" /><label>&nbsp;&nbsp;100 to 1</label></p>
+    <p><input name="abcde" type="radio" id="gatm120c" /><label>&nbsp;&nbsp;99 to 1</label></p>
+    <p><input name="abcde" type="radio" id="gatm120d" /><label>&nbsp;&nbsp;7 to 1</label></p>
+    <p><input name="abcde" type="radio" id="gatm120e" /><label>&nbsp;&nbsp;8 to 1</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(120)">Next</button>
+</div>
+<div id="121" style='display:none;font-size:18px'>
+    <label>If my age is 3* years, how many years must elapse before I am 4* years old?</label><br>
+    <p><input name="abcde" type="radio" id="gatm121a" /><label>&nbsp;&nbsp;15 years</label></p>
+    <p><input name="abcde" type="radio" id="gatm121b" /><label>&nbsp;&nbsp;16 years</label></p>
+    <p><input name="abcde" type="radio" id="gatm121c" /><label>&nbsp;&nbsp;17 years</label></p>
+    <p><input name="abcde" type="radio" id="gatm121d" /><label>&nbsp;&nbsp;10 years</label></p>
+    <p><input name="abcde" type="radio" id="gatm121e" /><label>&nbsp;&nbsp;21 years</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(121)">Next</button>
+</div>
+<div id="122" style='display:none;font-size:18px'>
+    <label>What number can fill in the blank?
+	<br><br>4, 5, 8,__ ,44, 125 </label><br>
+    <p><input name="abcde" type="radio" id="gatm122a" /><label>&nbsp;&nbsp;16</label></p>
+    <p><input name="abcde" type="radio" id="gatm122b" /><label>&nbsp;&nbsp;17</label></p>
+    <p><input name="abcde" type="radio" id="gatm122c" /><label>&nbsp;&nbsp;18</label></p>
+    <p><input name="abcde" type="radio" id="gatm122d" /><label>&nbsp;&nbsp;22</label></p>
+    <p><input name="abcde" type="radio" id="gatm122e" /><label>&nbsp;&nbsp;40</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(122)">Next</button>
+</div>
+<div id="123" style='display:none;font-size:18px'>
+	<label>What number can fill in the blank below? </label><br>
+	<table style="font-size:18px">
+	<tr><td>6&emsp;&emsp;</td><td>4&emsp;&emsp;</td><td>2&emsp;&emsp;</td></tr>
+	<tr><td>8&emsp;&emsp;</td><td>6&emsp;&emsp;</td><td>2&emsp;&emsp;</td></tr>
+	<tr><td>_&emsp;&emsp;</td><td>10&emsp;&emsp;</td><td>4&emsp;&emsp;</td></tr>
+	</table>    
+	<br>
+    <p><input name="abcde" type="radio" id="gatm123a" /><label>&nbsp;&nbsp;12</label></p>
+    <p><input name="abcde" type="radio" id="gatm123b" /><label>&nbsp;&nbsp;13</label></p>
+    <p><input name="abcde" type="radio" id="gatm123c" /><label>&nbsp;&nbsp;14</label></p>
+    <p><input name="abcde" type="radio" id="gatm123d" /><label>&nbsp;&nbsp;15</label></p>
+    <p><input name="abcde" type="radio" id="gatm123e" /><label>&nbsp;&nbsp;16</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(123)">Next</button>
+</div>
+<div id="124" style='display:none;font-size:18px'>
+    <p><label>What is the side of square whose diagonal is 12 cms ?</label></p>
+    <p><textarea id="gatm124" rows="1" cols="10"></textarea></p>
+    <button style="width:6%;height:6%" style="width:6%;height:6%" onclick="gatmAns(124)">Next</button>
+</div>
+<div id="125" style='display:none;font-size:18px'>
+    <p><label><i>"When I was as old as you were then I was two years younger than I am now", Prakash told Ratna, "You will be  thrice as 
+	<br>old as I’ll be in two year’s time”. Ratha said, "When I’m as old as you were then I was three year older than you were 
+	<br>when you were twice as old as what you are."</i> 
+    </label><br></p>
+    <p><label>What is Prakash's age?</label>
+    <br><textarea id="gatm125a" /></textarea></p> 
+    
+    <p><label>What is Ratna's age?</label>
+    <br><textarea id="gatm125b" /></textarea></p>
+    <br><button style="width:6%;height:6%" onclick="gatmAns(125)">Next</button>
+</div>
+<div id="126" style='display:none;font-size:18px'>
+    <label>What numbers can fill these blanks?
+    <br><br>5, 6,10, __ , 90 , __ </label><br>
+    <p><input name="abcde" type="radio" id="gatm126a" /><label>&nbsp;&nbsp;24 and 356</label></p>
+    <p><input name="abcde" type="radio" id="gatm126b" /><label>&nbsp;&nbsp;22 and 346</label></p>
+    <p><input name="abcde" type="radio" id="gatm126c" /><label>&nbsp;&nbsp;26 and 346</label></p>
+    <p><input name="abcde" type="radio" id="gatm126d" /><label>&nbsp;&nbsp;18 and 180</label></p>
+    <p><input name="abcde" type="radio" id="gatm126e" /><label>&nbsp;&nbsp;15 and 500</label></p>
+    <button style="width:6%;height:6%" onclick="gatmAns(126)">Next</button>
+</div>
+<div id="127" style='display:none;font-size:18px'>
+    <label>Sum of first 22 terms in sequence of numbers whose first 6 terms are as below. What is in the thousands place of the sum?
+    <br><br>7,77,777,7777,77777,777777, ....... </label>    
+   	<br><textarea id="gatm127" /></textarea>
+    <br><br><button style="width:6%;height:6%" onclick="gatmAns(127)">Next</button>
+</div>
+<!-- GATM ends -->
+<!-- GATL starts -->
+<div id="128" style='display:none;font-size:18px'>
+    Read the following paragraph carefully and answer the three questions given after that.<br>
+    <i>His sons, Binda Din and Kalka, were his chief pupils. Lachchu Maharaj and Shambhu Maharaj were the sons of Kalka 
+    <br>Prasad and were born in the famous Kalka-Binda Din-Ki-Deorhi of Lucknow which in its dilapidated condition even now 
+    <br>is a place of pilgrimage
+    </i>
+    <br><br><label>Lachchu Maharaj was the son of</label><br>
+    <p><input name="abcde1" type="radio" id="gatl128a" /><label>&nbsp;&nbsp;Kalka Prasad</label></p>
+    <p><input name="abcde1" type="radio" id="gatl128b" /><label>&nbsp;&nbsp;Banda Din</label></p>
+    <p><input name="abcde1" type="radio" id="gatl128c" /><label>&nbsp;&nbsp;Shambhu Maharaj</label></p>
+    <p><input name="abcde1" type="radio" id="gatl128d" /><label>&nbsp;&nbsp;Janeshwar Prasad</label></p>
+    <p><input name="abcde1" type="radio" id="gatl128e" /><label>&nbsp;&nbsp;Kirti Maharaj</label></p>    
+	<br><br>
+    <label>The chief pupils of the writer were his two</label><br>
+    <p><input name="abcde2" type="radio" id="gatl129a" /><label>&nbsp;&nbsp;Sons</label></p>
+    <p><input name="abcde2" type="radio" id="gatl129b" /><label>&nbsp;&nbsp;Houses</label></p>
+    <p><input name="abcde2" type="radio" id="gatl129c" /><label>&nbsp;&nbsp;Nephews</label></p>
+    <p><input name="abcde2" type="radio" id="gatl129d" /><label>&nbsp;&nbsp;A son and a daughter</label></p>
+    <p><input name="abcde2" type="radio" id="gatl129e" /><label>&nbsp;&nbsp;Daughters</label></p>  
+	<br><br>
+    <label>According to the paragraph, Din-Ki-Deorhi is a </label><br>
+    <p><input name="abcde3" type="radio" id="gatl130a" /><label>&nbsp;&nbsp;Locality</label></p>
+    <p><input name="abcde3" type="radio" id="gatl130b" /><label>&nbsp;&nbsp;House</label></p>
+    <p><input name="abcde3" type="radio" id="gatl130c" /><label>&nbsp;&nbsp;City</label></p>
+    <p><input name="abcde3" type="radio" id="gatl130d" /><label>&nbsp;&nbsp;Dress</label></p>
+    <p><input name="abcde3" type="radio" id="gatl130e" /><label>&nbsp;&nbsp;Means of transport</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(128)">Next</button>
+</div>
+<div id="131" style='display:none;font-size:18px'>
+    <label>Another word for <i>rubbing</i> is</label><br>
+    <p><input name="abcde" type="radio" id="gatl131a" /><label>&nbsp;&nbsp;Sparking</label></p>
+    <p><input name="abcde" type="radio" id="gatl131b" /><label>&nbsp;&nbsp;Winding</label></p>
+    <p><input name="abcde" type="radio" id="gatl131c" /><label>&nbsp;&nbsp;Motion</label></p>
+    <p><input name="abcde" type="radio" id="gatl131d" /><label>&nbsp;&nbsp;Friction</label></p>
+    <p><input name="abcde" type="radio" id="gatl131e" /><label>&nbsp;&nbsp;Encounter</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(131)">Next</button>
+</div>
+<div id="132" style='display:none;font-size:18px'>
+    <label>The opposite of <i>regression</i> is</label><br>
+    <p><input name="abcde" type="radio" id="gatl132a" /><label>&nbsp;&nbsp;Digression</label></p>
+    <p><input name="abcde" type="radio" id="gatl132b" /><label>&nbsp;&nbsp;Projection</label></p>
+    <p><input name="abcde" type="radio" id="gatl132c" /><label>&nbsp;&nbsp;Ejection</label></p>
+    <p><input name="abcde" type="radio" id="gatl132d" /><label>&nbsp;&nbsp;Projection</label></p>
+    <p><input name="abcde" type="radio" id="gatl132e" /><label>&nbsp;&nbsp;Depression</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(132)">Next</button>
+</div>
+<div id="133" style='display:none;font-size:18px'>
+    <label>The idiom <i>part and parcel</i> means</label><br>
+    <p><input name="abcde" type="radio" id="gatl133a" /><label>&nbsp;&nbsp;The essential portion</label></p>
+    <p><input name="abcde" type="radio" id="gatl133b" /><label>&nbsp;&nbsp;The unimportant portion</label></p>
+    <p><input name="abcde" type="radio" id="gatl133c" /><label>&nbsp;&nbsp;To gift away the parcel</label></p>
+    <p><input name="abcde" type="radio" id="gatl133d" /><label>&nbsp;&nbsp;Part of the family</label></p>
+    <p><input name="abcde" type="radio" id="gatl133e" /><label>&nbsp;&nbsp;Children of the family</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(133)">Next</button>
+</div>
+<div id="134" style='display:none;font-size:18px'>
+    <label>Which of the following is grammatically incorrect?</label><br>
+    <p><input name="abcde" type="radio" id="gatl134a" /><label>&nbsp;&nbsp;She showed them how to open the gates</label></p>
+    <p><input name="abcde" type="radio" id="gatl134b" /><label>&nbsp;&nbsp;We were told to meet him here</label></p>
+    <p><input name="abcde" type="radio" id="gatl134c" /><label>&nbsp;&nbsp;There was nothing to do because wait till he came back</label></p>
+    <p><input name="abcde" type="radio" id="gatl134d" /><label>&nbsp;&nbsp;I consider him to be the best candidate or</label></p>
+    <p><input name="abcde" type="radio" id="gatl134e" /><label>&nbsp;&nbsp;I consider that he is the best candidate</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(134)">Next</button>
+</div>
+<div id="135" style='display:none;font-size:18px'>
+    <label>Which of the following is in the past tense ?</label><br>
+    <p><input name="abcde" type="radio" id="gatl135a" /><label>&nbsp;&nbsp;I shall be working</label></p>
+    <p><input name="abcde" type="radio" id="gatl135b" /><label>&nbsp;&nbsp;In will get it for you</label></p>
+    <p><input name="abcde" type="radio" id="gatl135c" /><label>&nbsp;&nbsp;I had eaten my food</label></p>
+    <p><input name="abcde" type="radio" id="gatl135d" /><label>&nbsp;&nbsp;I am running</label></p>
+    <p><input name="abcde" type="radio" id="gatl135e" /><label>&nbsp;&nbsp;I want to make a film</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(135)">Next</button>
+</div>
+<div id="136" style='display:none;font-size:18px'>
+    <label>Which of the following is correctly spelt ?</label><br>
+    <p><input name="abcde" type="radio" id="gatl136a" /><label>&nbsp;&nbsp;Equillibrium</label></p>
+    <p><input name="abcde" type="radio" id="gatl136b" /><label>&nbsp;&nbsp;Equilibbrium</label></p>
+    <p><input name="abcde" type="radio" id="gatl136c" /><label>&nbsp;&nbsp;Equillibrrium</label></p>
+    <p><input name="abcde" type="radio" id="gatl136d" /><label>&nbsp;&nbsp;Equilibrium</label></p>
+    <p><input name="abcde" type="radio" id="gatl136e" /><label>&nbsp;&nbsp;Equilibbrrium</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(136)">Next</button>
+</div>
+<div id="137" style='display:none;font-size:18px'>
+    <label>Which one of these is the <i>odd-man-out</i>?</label><br>
+    <p><input name="abcde" type="radio" id="gatl137a" /><label>&nbsp;&nbsp;Velocity</label></p>
+    <p><input name="abcde" type="radio" id="gatl137b" /><label>&nbsp;&nbsp;Immobility</label></p>
+    <p><input name="abcde" type="radio" id="gatl137c" /><label>&nbsp;&nbsp;Speed</label></p>
+    <p><input name="abcde" type="radio" id="gatl137d" /><label>&nbsp;&nbsp;Swiftness</label></p>
+    <p><input name="abcde" type="radio" id="gatl137e" /><label>&nbsp;&nbsp;Rapidity</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(137)">Next</button>
+</div>
+<div id="138" style='display:none;font-size:18px'>
+    <label>What is the meaning of <i>Bangalored</i>?</label><br>
+    <p><input name="abcde" type="radio" id="gatl138a" /><label>&nbsp;&nbsp;Belonging to Bangalore</label></p>
+    <p><input name="abcde" type="radio" id="gatl138b" /><label>&nbsp;&nbsp;Pushed down to the floor</label></p>
+    <p><input name="abcde" type="radio" id="gatl138c" /><label>&nbsp;&nbsp;One's job given away to someone in Bangalore</label></p>
+    <p><input name="abcde" type="radio" id="gatl138d" /><label>&nbsp;&nbsp;Exported from Bangalore</label></p>
+    <p><input name="abcde" type="radio" id="gatl138e" /><label>&nbsp;&nbsp;Translated into Kannada</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(138)">Next</button>
+</div>
+<div id="139" style='display:none;font-size:18px'>
+    <label>Which of the following is correctly punctuated ? </label><br>
+    <p><input name="abcde" type="radio" id="gatl139a" /><label>&nbsp;&nbsp;Defeated, he thrust a roll of bills at her</label></p>
+    <p><input name="abcde" type="radio" id="gatl139b" /><label>&nbsp;&nbsp;Defeated he, thrust a roll of bills at her</label></p>
+    <p><input name="abcde" type="radio" id="gatl139c" /><label>&nbsp;&nbsp;Defeated he thrust a, roll of bills at her</label></p>
+    <p><input name="abcde" type="radio" id="gatl139d" /><label>&nbsp;&nbsp;Defeated he thrust a roll, of bills at her</label></p>
+    <p><input name="abcde" type="radio" id="gatl139e" /><label>&nbsp;&nbsp;Defeated he thrust a roll of bills at, her</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(139)">Next</button>
+</div>
+<div id="140" style='display:none;font-size:18px'>
+    <label>The plural of the word <i>Ox</i> is</label><br>
+    <p><input name="abcde" type="radio" id="gatl140a" /><label>&nbsp;&nbsp;Ox</label></p>
+    <p><input name="abcde" type="radio" id="gatl140b" /><label>&nbsp;&nbsp;Oxs</label></p>
+    <p><input name="abcde" type="radio" id="gatl140c" /><label>&nbsp;&nbsp;Oxes</label></p>
+    <p><input name="abcde" type="radio" id="gatl140d" /><label>&nbsp;&nbsp;Oxen</label></p>
+    <p><input name="abcde" type="radio" id="gatl140e" /><label>&nbsp;&nbsp;Ox-team</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(140)">Next</button>
+</div>
+<div id="141" style='display:none;font-size:18px'>
+    <label>Which word is the noun in - <i>Good ideas sometimes occur slowly.</i></label><br>
+    <p><input name="abcde" type="radio" id="gatl141a" /><label>&nbsp;&nbsp;Good</label></p>
+    <p><input name="abcde" type="radio" id="gatl141b" /><label>&nbsp;&nbsp;ideas</label></p>
+    <p><input name="abcde" type="radio" id="gatl141c" /><label>&nbsp;&nbsp;sometimes</label></p>
+    <p><input name="abcde" type="radio" id="gatl141d" /><label>&nbsp;&nbsp;occur</label></p>
+    <p><input name="abcde" type="radio" id="gatl141e" /><label>&nbsp;&nbsp;slowly</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(141)">Next</button>
+</div>
+<div id="142" style='display:none;font-size:18px'>
+    <label><i>Calendar</i> : <i>Date</i> as <i>Books</i> : (?)</label><br>
+    <p><input name="abcde" type="radio" id="gatl142a" /><label>&nbsp;&nbsp;Library</label></p>
+    <p><input name="abcde" type="radio" id="gatl142b" /><label>&nbsp;&nbsp;File</label></p>
+    <p><input name="abcde" type="radio" id="gatl142c" /><label>&nbsp;&nbsp;Paper</label></p>
+    <p><input name="abcde" type="radio" id="gatl142d" /><label>&nbsp;&nbsp;Print</label></p>
+    <p><input name="abcde" type="radio" id="gatl142e" /><label>&nbsp;&nbsp;Record</label></p>
+    <button style="width:6%;height:6%" onclick="gatlAns(142)">Next</button>
+</div>
+<!-- GATL ends -->
+<div id="143" style='display:none;font-size:18px'>
+<div id="showb">
+<p>On pressing the "start" button, we will show you ten words. 
+<br><br>Please read and remember them. 
+<br><br><b>You have 30 seconds!</b></p>
+<button style="width:6%;height:6%" onclick="start()">Start</button></div>
+<div style="display:none" id="words"> 
+Ten words!
+<ul><li><i>Football</i></li>
+<li><i>Workshop</i></li>
+<li><i>Einstein</i></li>
+<li><i>Example</i></li>
+<li><i>Constantinople</i></li>
+<li><i>Alluring</i></li>
+<li><i>Aishwarya</i></li>
+<li><i>Calculations</i></li>
+<li><i>Durga Pooja</i></li>
+<li><i>Father-In-law</i></li>
+</ul>
+</div>
+<div id="time" style="display:none">Time left:  <b>30 seconds</b></div>
+<div id="epi" style="display:none">
+<p>Thanks! Please remember the words.</p>
+<button style="width:6%;height:6%" onclick="nextQuestion(143)">Next</button>
+</div>
+</div>
+<div id="144" style='display:none;font-size:18px'>
+<p>A short while ago we asked you to read <b>ten words</b> and remember them! Please reproduce them here.</p>
+<ul>
+<li><input type="text" id="tw1"></li>
+<li><input type="text" id="tw2"></li>
+<li><input type="text" id="tw3"></li>
+<li><input type="text" id="tw4"></li>
+<li><input type="text" id="tw5"></li>
+<li><input type="text" id="tw6"></li>
+<li><input type="text" id="tw7"></li>
+<li><input type="text" id="tw8"></li>
+<li><input type="text" id="tw9"></li>
+<li><input type="text" id="tw10"></li>
+</ul>
+<button style="width:6%;height:6%" onclick="submitTW(144)">Next</button>
+</div>
+<div id="145" style="display:none" style='font-size:18px'>
+<div id="showb1">
+<p>On pressing the "start" button, we will show you five questions. 
+<br><br>Please read them and think about their answers. 
+<br><br><b>You have 30 seconds!</b></p>
+<button style="width:6%;height:6%" onclick="start1()">Start</button></div>
+<div style="display:none" id="ques"> 
+<p>Five questions!</p>
+<ul><li><i>Who was the first President of India ?</i></li>
+<li><i>How much is 34 + 59 ?</i></li>
+<li><i>What is Jharkhand's capital?</i></li>
+<li><i>On the day of which festival did a Tsunami hit India?</i></li>
+<li><i>What is the 7th letter of the English alphabet?</i></li>
+</ul>
+</div>
+<div id="time1" style="display:none">Time left:  <b>30 seconds</b></div>
+<div id="epi1" style="display:none">
+<p>Thanks! Please remember the questions and their answers.</p>
+<button style="width:6%;height:6%" onclick="nextQuestion(145)">Next</button>
+</div>
+
+</div>
+<div id="146" style='display:none;font-size:18px'>
+<p>A short while ago we asked you to read <b>five questions</b> and remember their answers! Please answer them here.</p>
+<ul>
+<li><input type="text" class="pin" id="fq1"></li>
+<li><input type="text" class="pin" id="fq2"></li>
+<li><input type="text" class="pin" id="fq3"></li>
+<li><input type="text" class="pin" id="fq4"></li>
+<li><input type="text" class="pin" id="fq5"></li>
+</ul>
+<br><button style="width:6%;height:6%" onclick="submitFQ(146)">Next</button>
+</div>
+<div id="147" style='display:none;font-size:18px'>
+<p>This completes the multiple choice questions section. Thanks!</p>
+<p>Press <b>Continue</b> to continue with the aptitude test.
+<br>
+<a class="myButton" onclick="endTest()">Continue</a>
+</div>
+<div id="errorDiv" style='font-size:18px'></div>
+</body>
+</html>

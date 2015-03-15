@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label style="font-size:16px"><b>YOUR CHOICE OF CAREER</b></label></p>
+<p><label style="font-size:16px">Give us a few details of any two careers/professions that you would like to opt for.</label></p>
+<table>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td></td>
+<td align="center"><label style="font-size:16px"><b>First choice</b></label></td>
+<td align="center"><label style="font-size:16px"><b>Second choice</b></label></td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label style="font-size:16px">Name of the profession &emsp;</label></td>
+<td><input type="text" id="profession1_name"></td>
+<td><input type="text" id="profession2_name"></td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label style="float:left;font-size:16px">Why have you chosen this profession?&emsp;</label></td>
+<td><textarea class="mini" id="profession1_reason"></textarea></td>
+<td><textarea class="mini" id="profession2_reason"></textarea></td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label style="font-size:16px">What courses would you need to take up?&emsp;</label></td>
+<td><textarea class="mini" id="profession1_courses"></textarea></td>
+<td><textarea class="mini" id="profession2_courses"></textarea></td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label style="font-size:16px">What subjects would you need to study?&emsp;</label></td>
+<td><textarea class="mini" id="profession1_subjects"></textarea>&emsp;</td>
+<td><textarea class="mini" id="profession2_subjects"></textarea>&emsp;</td>
+</tr>
+<tr>
+<td><label style="font-size:16px">What skills would you need to develop?&emsp;</label></td>
+<td><textarea class="mini" id="profession1_skills"></textarea>&emsp;</td>
+<td><textarea class="mini" id="profession2_skills"></textarea>&emsp;</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label style="font-size:16px">What kind of job would you be doing?&emsp;</label></td>
+<td><textarea class="mini" id="profession1_job"></textarea>&emsp;</td>
+<td><textarea class="mini" id="profession2_job"></textarea>&emsp;</td>
+</tr>
+</table>
+<br><br>
+<a class="myButton" onclick="submitCareerChoice()">Continue</a>
+<div id="incomp" style="display:none">
+You haven't provided an answer to a question. Kindly provide response to all questions.
+</div>
+</body>
+</html>

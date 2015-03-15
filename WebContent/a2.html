@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script>
+function populateYears() {
+	var obj=document.getElementById("year9");
+	var d = new Date();
+	var year = d.getFullYear();
+	for(var i=year-10; i>=year-40; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i
+		obj.appendChild(option);
+	}
+}
+
+function updateX() {
+
+	var check = document.getElementById("skip").checked;
+	if(check==true)
+		document.getElementById("stdX").style.display = 'none';
+	else
+		document.getElementById("stdX").style.display = 'inline';
+}
+
+</script>
+<link rel="stylesheet" type="text/css" href="style.css"><meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<body onload="populateYears()">
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><b>STD. IX DETAILS</b></p>
+<table><tr><td>Name of school<label style="color:red">*</label> &emsp;</td>
+<td><input type="text" id="school9" class="school"></td></tr>
+<tr><td>Board<label style="color:red">*</label> &emsp;</td><td><select id="board9">
+<option disabled selected></option>
+<option value="state">State board</option>
+<option value="cbse">CBSE</option>
+<option value="icse">ICSE</option>
+<option value="nios">NIOS</option>
+</select>&emsp;</td></tr></table>
+<br>
+<p><b><i>Scores</i></b></p>
+<div>
+<table>
+<tr><td>Year of exam<label style="color:red">*</label></td><td><select id="year9">
+<option disabled selected></option>
+</select>&emsp;</td></tr>
+<tr><td>Overall percentage<label style="color:red">*</label> &emsp;</td><td><select id="overall9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;</td></tr></table>
+<br>
+<table>
+<tr><td>English<label style="color:red">*</label>&emsp;</td><td><select id="english9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td>
+<td>Hindi<label style="color:red">*</label>&emsp;</td><td><select id="hindi9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td>
+<td>Kannada<label style="color:red">*</label>&emsp;</td><td><select id="kannada9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td></tr>
+<tr><td>Science<label style="color:red">*</label>&emsp;</td><td><select id="science9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td>
+<td>Mathematics<label style="color:red">*</label>&emsp;</td><td><select id="maths9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td>
+<td>Social Science<label style="color:red">*</label>&emsp;</td><td><select id="social9">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;</td></tr></table>
+<br>
+<label>Other subjects</label>
+<table><tr><td><input type="text" id="other19n" value="Enter subject name" onblur="reset(this.id)" onfocus="deleteWM(this.id)" class="adjust"></td>
+<td>&emsp;</td><td><select id="other19">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;&emsp;&emsp;</td>
+<td><input type="text" id="other29n" value="Enter subject name" onblur="reset(this.id)" onfocus="deleteWM(this.id)" class="adjust"></td>
+<td>&emsp;</td><td><select id="other29">
+<option disabled selected></option>
+<option value="r0">Not applicable</option>
+<option value="r1">Lesser than 40</option>
+<option value="r2">40 to 49</option>
+<option value="r3">50 to 59</option>
+<option value="r4">60 to 69</option>
+<option value="r5">70 to 79</option>
+<option value="r6">80 to 89</option>
+<option value="r7">90 to 100</option>
+</select>&emsp;</td></tr></table>
+</div>
+<br>
+<a class="myButton" onclick="submitIX()">Continue</a>
+<div id="aSchool" style="display:none">Please enter the name of your school</div>
+<div id="aBoard" style="display:none">Please select a board name</div>
+<div id="aYear" style="display:none">Please select the year of exam</div>
+<div id="aOverall" style="display:none">Please mention the overall percentage</div>
+<div id="aSubjects" style="display:none">You haven't mention a score for one of the subjects. You may choose "Not Applicable" if needed.</div>
+</body>
+</html>

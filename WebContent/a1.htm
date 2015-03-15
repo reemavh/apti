@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<script>
+function populateYears() {
+	var obj=document.getElementById("year_birth");
+	var d = new Date();
+	var year = d.getFullYear();
+	for(var i=year-10; i>=year-70; i--) {
+		var option = document.createElement("option");
+		option.value= "" + i;
+		option.text = "" + i
+		obj.appendChild(option);
+	}
+}
+</script>
+</head>
+<body onload="populateYears()">
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<br>
+<b>CONTACT DETAILS</b>
+<br>
+<table style="border-spacing:1em">
+<tr><td>Title<label style="color:red">*</label> &emsp;</td><td><select id="title">
+<option selected disabled></option>
+<option value="Mr">Mr.</option>
+<option value="Ms">Ms.</option>
+</select></td></tr>
+<tr><td>Name<label style="color:red">*</label> &emsp;</td><td><input type="text" id="name"></td></tr>
+<tr><td>Date of birth<label style="color:red">*</label> &emsp;</td>
+<td><select id="date_birth">
+<option selected disabled></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select> &emsp;
+<select id="month_birth">
+<option selected disabled></option>
+<option value="Jan">January</option>
+<option value="Feb">February</option>
+<option value="Mar">March</option>
+<option value="Apr">April</option>
+<option value="May">May</option>
+<option value="Jun">June</option>
+<option value="Jul">July</option>
+<option value="Aug">August</option>
+<option value="Sep">September</option>
+<option value="Oct">October</option>
+<option value="Nov">November</option>
+<option value="Dec">December</option>
+</select> &emsp;
+<select id="year_birth">
+<option selected disabled></option>
+</select> &emsp;</td></tr>
+<tr><td>E-mail<label style="color:red">*</label> &emsp;</td><td><input type="text" id="email" class="email"></td></tr>
+<tr><td>Phone numbers<label style="color:red">*</label> &emsp;</td><td><input type="text" id="ph1" class="pin">
+<input type="text" id="ph2" class="pin"></td></tr>
+<tr><td>Address<label style="color:red">*</label> &emsp;</td><td><textarea id="address" cols="50" rows="3"></textarea></td></tr>
+</table>
+<br>
+<a class="myButton" onclick="submitContact()">Continue</a>
+<div id="aTitle" style="display:none">Please enter a title</div>
+<div id="aName" style="display:none">Please enter your name</div>
+<div id="aYear" style="display:none">Please enter a valid birth date</div>
+<div id="aEmail" style="display:none">Please specify an email id</div>
+<div id="aPhone" style="display:none">Please provide at least one contact number</div>
+<div id="aAddress" style="display:none">Please mention your address</div>
+<div id="aDate" style="display:none">You entered a wrong date</div>
+<div id="aValidEmail" style="display:none">Please enter a valid email address</div>
+</body>
+</html>

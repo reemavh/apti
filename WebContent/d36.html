@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var count = 0;
+function populate() {
+	var selections = getCookie("voc1").split("|");
+	alert(selections.length);
+	count = selections.length-1;
+	
+	var html = "<p><table style=\"font-size:14px\">";
+	for(var i=0;i<count;i+=3) {
+		var id1 = "vocp"+(i+1);
+		var lab1 = "lab_"+id1;
+		var id2 = "vocp"+(i+2);
+		var lab2 = "lab_"+id2;
+		var id3 = "vocp"+(i+3);
+		var lab3 = "lab_"+id3;
+		html+= "<tr>";
+		html+= "<td><input type=\"checkbox\" id=\"" + id1 + "\">&emsp;<label id=\""+lab1+"\">" + selections[i] + "</label></td>";
+		if(i+1<count) {
+			html+="<td>&emsp;&emsp;&emsp;</td>";
+			html+= "<td><input type=\"checkbox\" id=\"" + id2 + "\">&emsp;<label id=\""+lab2+"\">" + selections[i+1] + "</label></td>";
+		}
+		if(i+2<count) {
+			html+="<td>&emsp;&emsp;&emsp;</td>";
+			html+= "<td><input type=\"checkbox\" id=\"" + id3 + "\">&emsp;<label id=\""+lab3+"\">" + selections[i+2] + "</label></td>";
+		}
+		html+="</tr>";
+	}
+	html += "</table></p>";		
+	document.getElementById("voc1").innerHTML = html;
+}
+</script>
+<body onload="populate()">
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<b>Vocational Interest Test</b>
+<p>
+<label style="font-size:14px">
+Out of the following vocations selected by you, please select the <b>two vocations that you would prioritize.</b>
+</label>
+</p>
+<div id="voc1"></div>
+<a class="myButton" onclick="submitVoc2()">Continue</a>
+<div id="errorDiv"></div>
+</body>
+</html>

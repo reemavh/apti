@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script>
+function remTWM(id) {
+	var element = document.getElementById(id);
+	if (element.value == "First ..."  ||
+			element.value == "Second ..." ||
+			element.value == "Third ...") {
+		element.style.color="#000000";
+		element.value="";
+	}
+}
+
+function resetTWM(id,num) {
+	var element = document.getElementById(id);
+	if(element.value=="") {
+		element.style.color="#D1D0CE";
+		switch(num) {
+			case 1: element.value="First ..."; break;
+			case 2: element.value="Second ..."; break;
+			case 3: element.value="Third ..."; break;
+		}
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>THE BEST QUALITIES IN YOU</b></label></p>
+<p><label style="font-size:14px">What are the three best qualities in you ?</label></p>	
+<textarea class="minigb" id="good_quality1" onfocus="remTWM(this.id)" onblur="resetTWM(this.id,1)">First ...</textarea>
+<br><br>
+<textarea class="minigb" id="good_quality2" onfocus="remTWM(this.id)" onblur="resetTWM(this.id,2)">Second ...</textarea>
+<br><br>
+<textarea class="minigb" id="good_quality3" onfocus="remTWM(this.id)" onblur="resetTWM(this.id,3)">Third ...</textarea>
+<br><br>
+<a class="myButton" onclick="submitGoodQual()">Continue</a>
+<div id="dialog2" style="display:none">
+Please write the three best qualities in you.
+</div>
+</body>
+</html>

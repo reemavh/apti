@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<script>
+function start() {
+	if(typeof(Storage)!="undefined") {
+		window.location.href="a1.htm";
+	} else {
+		alert("Old browser. Please upgrade.");
+	}
+}
+</script>
+<body style="background-color:#E6E6FA; color:#4f738e;text-align:center;vertical-align:center">
+<br><br>
+<div class="header" style="background-color:#E6E6FA;color:#4f738e">
+<label style="font-size:5em">CAREER APTITUDE TEST</label><br><br>
+<label style="font-size:2em">BANJARA ACADEMY, BENGALURU</label>
+</div>
+<br><br><br><br>
+<a class="myButton" onclick="start()">Start Test</a>
+</body>
+</html>

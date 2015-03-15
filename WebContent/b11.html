@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script>
+function updateX() {
+
+	var check = document.getElementById("skip").checked;
+	if(check==true)
+		document.getElementById("stdX").style.display = 'none';
+	else
+		document.getElementById("stdX").style.display = 'inline';
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>CHANGES IN YOUR SCHOOL/COLLEGE</b></label></p>
+<input type="checkbox" onclick="updateX()" id="skip" class="cbox">
+<label class="cbox" style="font-size:14px">No school/college changes</label>
+<br>
+<div id="stdX">
+<label style="font-size:14px">Tell us if you changed your school/college (and the reasons if you did).</label>
+<br><textarea class="medium" id="scchange"></textarea>
+<br>
+</div>
+<br>
+<a class="myButton" onclick="submitChange()">Continue</a>
+<div id="dialog2" style="display:none">
+You haven't mentioned any school/college changes. Do you wish to continue?
+</div>
+</body>
+</html>

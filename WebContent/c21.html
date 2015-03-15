@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>ABOUT YOUR PARENTS</b></label></p>
+<label><b>Mother</b></label>
+<table>
+<tr><td><label>Name &emsp;</label></td><td><input type="text" id="mother_name" class="school"></td></tr>
+<tr><td>Qualification &emsp;</td><td><input type="text" id="mother_qualification" class="school"></td></tr>
+<tr><td>Occupation &emsp;</td><td><input type="text" id="mother_occupation" class="school"></td></tr>
+</table>
+<br>
+<label><b>Father</b></label>
+<table>
+<tr><td>Name &emsp;</td><td><input type="text" id="father_name" class="school"></td></tr>
+<tr><td>Qualification &emsp;</td><td><input type="text" id="father_qualification" class="school"></td></tr>
+<tr><td>Occupation &emsp;</td><td><input type="text" id="father_occupation" class="school"></td></tr>
+</table>
+<br><br>
+<a class="myButton" onclick="submitParentInfo()">Continue</a>
+<div id="father" style="display:none">
+Kindly provide complete information about your father.
+</div>
+<div id="mother" style="display:none">
+Kindly provide complete information about your mother.
+</div>
+</body>
+</html>

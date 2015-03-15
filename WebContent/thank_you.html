@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<script>
+function submitResponse() {	
+	var json = "{ \"answer\" : {";
+	var i=0;
+	for (; i < localStorage.length-1; i++){
+		var key = localStorage.key(i);
+	    var val = localStorage.getItem(key);
+	  	var jsonKey = "\"" + key + "\"";
+	  	var jsonVal = "\"" + val + "\"";
+	  	var append = jsonKey + ":" + jsonVal + ","
+	  	json+=append;
+	}
+	var key = localStorage.key(i);
+    var val = localStorage.getItem(key);
+  	var jsonKey = "\"" + key + "\"";
+  	var jsonVal = "\"" + val + "\"";
+  	var append = jsonKey + ":" + jsonVal;
+  	json+=append;
+	json += "}}"
+	console.log(json);
+}
+</script>
+<body onload="submitResponse()">
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<div class="header" style="background-color:#FFFFFF;font-size:2em;color:black">
+<p>Uploading your response.</p> 
+<p>
+<img src="http://daycomobile.com/static/skin/ajax-loader.gif" alt="Please wait ...">
+</p> 
+<p><label style="color:red"><b>Do not press any button. This may take a few seconds.</b></label></p></div>
+<br><br><br><br>
+</body>
+</html>

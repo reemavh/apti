@@ -1,0 +1,194 @@
+@CHARSE T "ISO-8859-1";
+body {
+    background-color: white;
+    font-family: Times,Arial,sans-serif;
+}
+
+div.header {
+    background-color:#4f738e;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+
+h2 {    
+    text-align: center;
+    color: #4f738e;    
+}
+
+div.coundiv{
+	display: none; 
+}
+
+.ttitle {    
+    text-align: left;
+    color: #4f738e;     
+}
+
+textarea.large {
+	width: 800px;
+	height: 400px;
+}
+
+textarea.medium {
+	width: 600px;
+	height: 300px;
+}
+
+textarea.small {
+	width: 400px;
+	height: 200px;	
+}
+
+textarea.mini {
+	width: 400px;
+	height: 50px;	
+}
+
+textarea.minigb {
+	width: 400px;
+	height: 50px;
+	color: #D1D0CE;
+}
+
+textarea {
+	width: 400px;	
+	padding: 3px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 0.1em;
+}
+
+table.tab{
+}
+
+.bottom {
+  margin-bottom: 10px;
+}
+
+tr.compex {
+	height: 40px;
+}
+input[type="text"].tdadjust {
+	width: 250px;
+	margin-top: 40px;
+}
+
+input[type="text"].pinadjust {
+	width: 100px;
+	margin-top: 40px;
+}
+
+input[type="text"].adjust{
+	width: 150px;
+	margin-top: 11px;	
+	height: 16px;
+	vertical-align: baseline;
+	color: #D1D0CE;	
+}
+
+input[type="text"].pin {
+	width: 100px;
+}
+
+input[type="text"].digit {
+	width: 40px;
+	margin-top: 10px;
+}
+
+input[type="text"].seven {
+	width: 100px;
+	margin-top: 10px;
+}
+
+input[type="text"].sub {
+	width: 110px;
+}
+
+input[type="text"].email {
+	width: 250px;
+}
+
+input[type="text"].sali {
+	margin-top: 11px;
+	width: 100px;
+}
+
+label.cbox {
+	color: red;
+}
+
+input[type="text"].school {
+	margin-top: 11px;
+	width: 250px;
+}
+
+input[type="text"] {
+    width: 400px;
+    display: block;
+    margin-bottom: 10px;    
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+    
+.myText {
+	text-align: center;
+	font-size: medium;
+}
+
+.questionsText {
+	text-align: left;
+	font-size: large;
+	margin-top: 5px;
+	margin-left: 15px;
+	line-height: 200%
+}
+.myButton {
+	font-family: Times,Arial,sans-serif;
+	-moz-box-shadow:inset 0px 39px 0px -24px #4f738e;
+	-webkit-box-shadow:inset 0px 39px 0px -24px #4f738e;
+	box-shadow:inset 0px 39px 0px -24px #4f738e;
+	background-color:#4f738e;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+	clear:both;
+}
+.myButton:hover {
+	box-shadow:inset 0px 39px 0px -24px #12089F;
+	background-color:#12089F;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+div.fl {
+	float: left;
+}
+
+div.timer {
+	font-size: 30px;
+	font-family:arial;
+}
+
+div.scroll {
+	 width: 700px; 
+	 height: 320px; 
+	 overflow-y: scroll; 
+	 overflow-x: auto;	
+}

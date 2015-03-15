@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script src="script1.js"></script>
+<script>
+function resetPT() {
+	var content = document.getElementById("picture").value;
+	if(content=="")
+		document.getElementById("picture").value = "Describe the picture in more than 100 words..."
+}
+
+function deletePT() {
+	var content = document.getElementById("picture").value;
+	if(content=="Describe the picture in more than 100 words...")
+		document.getElementById("picture").value ="";
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label style="color:#4f738e"><b>Tell us what you think about this picture</b></label></p>
+<img style="width:200px;height:306px;float:left" src="http://i.imgur.com/q9xOsuz.jpg" alt="Loading image..." >
+
+&emsp;&emsp;&emsp;<textarea class="medium"  onblur="resetPT()" onfocus="deletePT()" id="picture">
+Describe the picture in more than 100 words...</textarea>
+<br>
+<p><a href="http://i.imgur.com/q9xOsuz.jpg" target="_black">View full-size image</a></p>
+<a class="myButton" onclick="submitPicture()">Continue</a>
+</body>
+</html>

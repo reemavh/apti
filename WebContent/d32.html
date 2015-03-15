@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var remaining = -1;
+var inI2 = setInterval(showRemaining,1000);
+function showRemaining() {
+	if (remaining < 0)
+		return;
+	remaining--;
+	if(remaining==0) {		
+		document.getElementById("pic").style.display='none';
+		document.getElementById("padding").style.display='none';
+		document.getElementById("rem").style.display='none';
+		document.getElementById("time").innerHTML = "Time up!";			
+		clearInterval(inI2);
+	}
+	else {	
+		if(remaining < 20)
+			document.getElementById("time").style.color="red";
+		document.getElementById("time").innerHTML = remaining%60 + " sec";
+	}
+}
+
+function start() {
+	remaining = 60;
+	document.getElementById("start").style.display='none';
+	document.getElementById("all").style.display='block';
+}
+</script>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+
+
+<div id="txt">
+<p>Read the passage, that will appear below, and count how many times the word <b>is</b> occurs, either independently, or as part of a bigger word.
+<br><br>
+Enter your answer in the box that will appear by the side of the passage.  
+</div>
+<div id="start">
+<label style="color:red">You have <b>one minute</b> to complete this.</label>
+<br><br>
+<button onclick="start()">Click here to start</button>
+</div>
+<div id="all" style="display:none">
+<table>
+<tr>	
+<td>
+<div id="pic">
+Passage:<br><br>
+<img src="http://i.imgur.com/6WD8q0O.png"/>
+</div></td>
+<td><div id="padding">&emsp;&emsp;&emsp;&emsp;</div></td>
+<td style="font-size:16px;font-family:Times">
+<b>Your answer</b>
+<table>
+<tr><td>Number of occurrences of "is" &emsp;</td><td><input type="text" class="digit" id="timednw7"></td></tr></table></td>
+<td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+<td><div id="rem">Time remaining<br><br></div>
+<div style="font-size:30px"id="time"></div></td>
+</tr></table>
+<br>
+<a class="myButton" onclick="submitGatc1()">Continue</a>
+</div>
+<div id="errorDiv" style='font-size:18px'></div>
+</body>
+</html>

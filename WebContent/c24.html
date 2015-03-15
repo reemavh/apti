@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>DIGITAL LIFE</b></label></p>
+<p><label>On your computer, laptop or smartphone, what among these do you do regularly?</label></p>
+
+<input type="checkbox" id="browsing"><label>Browsing the Internet</label>
+<br><br><input type="checkbox" id="games"><label>Playing games</label>
+<br><br><input type="checkbox" id="social"><label>Facebook, Twitter, GTalk, Whatsapp</label>
+<br><br><input type="checkbox" id="creative"><label>Something creative, related to designing</label>
+<br><br><input type="checkbox" id="coding"><label>Coding/Programming</label>
+<br><br><input type="checkbox" id="otheracts" onclick="askOthers()"><label>Other</label>
+<div id="other_activities_div" class="coundiv">
+<br><br><label style="font-size:14px">You chose "Other". Please give details.</label>
+<br><textarea class="mini" id="other_activities"></textarea>
+</div>
+<br><br>
+<a class="myButton" onclick="submitCompUse()">Continue</a>
+<div id="NoOthers" style="display:none">
+You selected 'Others'. Please provide details in the box below.
+</div>
+<div id="NoSel" style="display:none">
+You haven't selected any option.
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function deleteRitWM(id) {
+	var element = document.getElementById(id);
+	if (element.value == "Please tell us how..." ) {
+		element.value="";
+	}
+}
+
+function resetRit(id) {
+	var element = document.getElementById(id);
+	if(element.value=="") {
+		element.value="Please tell us how...";
+	}
+}
+
+function askHow(id) {
+	if(document.getElementById(id).value=="3" || document.getElementById(id).value=="2" ) {
+		if(id=="rit1")
+			document.getElementById("place").style.display="inline";
+		if(id=="rit2")
+			document.getElementById("food").style.display="inline";
+		if(id=="rit3")
+			document.getElementById("civilization").style.display="inline";
+	}
+	else {
+		if(id=="rit1")
+			document.getElementById("place").style.display="none";
+		if(id=="rit2")
+			document.getElementById("food").style.display="none";
+		if(id=="rit3")
+			document.getElementById("civilization").style.display="none";
+		
+	}
+}
+</script>
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<br>
+<div style="background-color:#E6E6FA">
+<label style="font-size:16px">Imagine that you have landed up alone in an island surrounded by a big ocean. No humans exist on the island.</label><br><br>
+<label style="font-size:16px">Assign priorities (how soon you'd do them) to each of these actions. For some, we'll ask you how you'd execute the action!</label><br><br>
+</div>
+<br><br>
+<table>
+<tr><th><b>Action</b></th><th><b>Priority</b></th></tr>
+<tr>
+<td><label style="font-size:16px">1. Find a secure place for your safety</label>
+&emsp;&emsp;&emsp;</td>
+<td>
+<select onchange="askHow(this.id);" id="rit1">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select></td><td>
+<div style="display:none" id="place">
+&emsp;&emsp;<textarea id="place_how" onblur="resetRit(this.id);" onfocus="deleteRitWM(this.id);">Please tell us how...</textarea>
+</div></td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">2. Look for food and water</label>
+&emsp;&emsp;&emsp;</td><td>
+<select onchange="askHow(this.id);" id="rit2">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select></td><td>
+<div id="food" style="display:none">
+&emsp;&emsp;<textarea id="food_how" onblur="resetRit(this.id);" onfocus="deleteRitWM(this.id);">Please tell us how...</textarea>
+</div></td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">3. Find out ways to get back to civilization</label>
+&emsp;&emsp;&emsp;</td><td>
+<select onchange="askHow(this.id);" id="rit3">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select></td><td>
+<div id="civilization" style="display:none">
+&emsp;&emsp;<textarea id="civ_how" onblur="resetRit(this.id);" onfocus="deleteRitWM(this.id);">Please tell us how...</textarea>
+</div></td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">4. Say prayers</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit4">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">5. Think deeply about why you landed there in the first place</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit5">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">6. Build a shelter, a raft or a look out tower</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit6">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">7. Use your mobile phone or laptop to ask for help</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit7">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">8. Relax, put your thoughts in order, start planning on what to do</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit8">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+<tr><td>&emsp;</td></tr>
+<tr><td>
+<label style="font-size:16px">9. Break down and cry, curse your fate and wait for death</label>
+&emsp;&emsp;&emsp;</td><td>
+<select id="rit9">
+<option disabled selected></option>
+<option value="3">High Priority/Immediately</option>
+<option value="2">Moderate Priority/In sometime</option>
+<option value="1">Low priority/would postpone</option>
+<option value="0">Would not do at all</option>
+</select>
+</td></tr>
+</table>
+<br><br>
+<p>
+<label style="font-size:16px">Out of the nine options above, which would be the top priority for you? &emsp;&emsp;</label>
+</p>
+<select id="rit10">
+<option disabled selected></option>
+<option value="1">Find a secure place for your safety</option>
+<option value="2">Look for food and water</option>
+<option value="3">Find out ways to get back to civilization</option>
+<option value="4">Say prayers</option>
+<option value="5">Think deeply about why you landed up there in the first place</option>
+<option value="6">Build a shelter, a raft or a lookout tower</option>
+<option value="7">Use your mobile phone or laptop to ask for help</option>
+<option value="8">Relax, put your thoughts in order and start planning on what to do</option>
+<option value="9">Break down and cry, curse your fate and wait for death</option>
+</select>
+<br><br>
+<p>Any other options that you would explore:<br>
+<textarea id="rit_other" class="small"></textarea></p>
+<br>
+<br>
+<a class="myButton" onclick="submitRIT()">Continue</a>
+<div style="display:none" id="error1">
+Please tell us how you will execute action 1.
+</div>
+<div style="display:none" id="error2">
+Please tell us how you will execute action 2.
+</div>
+<div style="display:none" id="error3">
+Please tell us how you will execute action 3.
+</div>
+<div style="display:none" id="error4">
+Please assign priorities to all the actions.
+</div>
+<div style="display:none" id="error5">
+Please choose the action that would be your top priority!
+</div>
+<div style="display:none" id="error6">
+If you think you wouldn't explore any other option, please type in "None" in the box. 
+</div>
+</body>
+</html>

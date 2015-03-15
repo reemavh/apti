@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var remaining=10;
+function updateRem(i) {
+	var id = "isi"+i;
+	if(document.getElementById(id).checked) {
+		remaining--;
+		if(remaining < 0 ) {
+			document.getElementById(id).checked=false;
+			remaining++;
+			baAlertOneLine("#oocError")
+		}
+	}
+	else
+		remaining++;
+	document.getElementById("cr").innerHTML="&emsp;&emsp;"+remaining;
+}
+</script>
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p>Out of the following list, select <b>not more than 10</b> activities which you are good at and do often.</p>
+<label style="color:red;font-size:14px">*Make sure you scroll down to view all the options of this list</label>
+<table>
+<tr>
+<td>
+<div class="scroll">
+	<input type="checkbox" id="isi1"  onclick="updateRem(1);">&emsp;Fixing broken gadgets in the house.
+<br><input type="checkbox" id="isi2"  onclick="updateRem(2);">&emsp;Loving and looking after pets or small children.
+<br><input type="checkbox" id="isi3"  onclick="updateRem(3);">&emsp;Introducing yourself to new people in a gathering.
+<br><input type="checkbox" id="isi4"  onclick="updateRem(4);">&emsp;Keeping track of your money, planning how to spend it.
+<br><input type="checkbox" id="isi5"  onclick="updateRem(5);">&emsp;Organizing your friends for a group activity, taking the lead.
+<br><input type="checkbox" id="isi6"  onclick="updateRem(6);">&emsp;Observing the way people dress, experimenting with new dress style.
+<br><input type="checkbox" id="isi7"  onclick="updateRem(7);">&emsp;Finding out how a new computer/mobile works.
+<br><input type="checkbox" id="isi8"  onclick="updateRem(8);">&emsp;Reading about biology or human beings.
+<br><input type="checkbox" id="isi9"  onclick="updateRem(9);">&emsp;Giving a speech or informal talk.
+<br><input type="checkbox" id="isi10" onclick="updateRem(10);">&emsp;Opening and maintaining your own bank account.
+<br><input type="checkbox" id="isi11" onclick="updateRem(11);">&emsp;Helping to settle a misunderstanding among two of your good friends.
+<br><input type="checkbox" id="isi12" onclick="updateRem(12);">&emsp;Visiting new places without knowing language, food habits etc.
+<br><input type="checkbox" id="isi13" onclick="updateRem(13);">&emsp;Cleaning and servicing your bike.
+<br><input type="checkbox" id="isi14" onclick="updateRem(14);">&emsp;Learning and practicing first aid. Helping if someone is hurt.
+<br><input type="checkbox" id="isi15" onclick="updateRem(15);">&emsp;Explaining an address to someone who is getting confused.
+<br><input type="checkbox" id="isi16" onclick="updateRem(16);">&emsp;Doing calculations and numerical quizzes.
+<br><input type="checkbox" id="isi17" onclick="updateRem(17);">&emsp;Catching up with an old friend you have not met for long time.
+<br><input type="checkbox" id="isi18" onclick="updateRem(18);">&emsp;Decorating the house for special occasions.
+<br><input type="checkbox" id="isi19" onclick="updateRem(19);">&emsp;Reading/watching TV on science, nature or space.
+<br><input type="checkbox" id="isi20" onclick="updateRem(20);">&emsp;Volunteering in a flood/famine/epidemic or social cause.
+<br><input type="checkbox" id="isi21" onclick="updateRem(21);">&emsp;Correcting someone in a group when he says something obviously wrong.
+<br><input type="checkbox" id="isi22" onclick="updateRem(22);">&emsp;Working out step-by-step procedure for an activity or event.
+<br><input type="checkbox" id="isi23" onclick="updateRem(23);">&emsp;Doing some sales work at a counter or fair.
+<br><input type="checkbox" id="isi24" onclick="updateRem(24);">&emsp;Changing or re-arranging your desk/ furniture, cupboard.
+<br><input type="checkbox" id="isi25" onclick="updateRem(25);">&emsp;Planning and calculating finances for a project or event.
+<br><input type="checkbox" id="isi26" onclick="updateRem(26);">&emsp;Being with people who are grieving or are in sorrow, to give solace.
+<br><input type="checkbox" id="isi27" onclick="updateRem(27);">&emsp;Wanting to learn different languages.
+<br><input type="checkbox" id="isi28" onclick="updateRem(28);">&emsp;Helping a younger child in maths home work.
+<br><input type="checkbox" id="isi29" onclick="updateRem(29);">&emsp;Contesting for any union or association elections.
+<br><input type="checkbox" id="isi30" onclick="updateRem(30);">&emsp;Visiting art or craft exhibitions.  
+</div>
+<label style="color:red;font-size:14px">*Make sure you scroll down to view all the options of this list</label>
+</td>
+<td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+<td>
+Choices remaining<br><br>
+<div style="font-size:30px" id="cr">&emsp;&emsp;10</div>
+</td>
+</tr>
+</table>
+<br>
+<a class="myButton" onclick="submitISI()">Continue</a>
+<div style="display:none"id="oocError">
+Sorry. You can select only 10 options.
+</div>
+</body>
+</html>

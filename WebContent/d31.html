@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+</head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script1.js"></script>
+<script>
+var remaining = -1;
+var inI2 = setInterval(showRemaining,1000);
+function showRemaining() {
+	if (remaining < 0)
+		return;
+	remaining--;
+	if(remaining==0) {		
+		document.getElementById("pic").style.display='none';
+		document.getElementById("padding").style.display='none';
+		document.getElementById("rem").style.display='none';
+		document.getElementById("time").innerHTML = "Time up";				
+		clearInterval(inI2);
+	}
+	else {	
+		if(remaining < 60)
+			document.getElementById("time").style.color="red";
+		document.getElementById("time").innerHTML = Math.floor(remaining/60)+" min " + remaining%60 + " sec";
+	}
+}
+
+function start() {
+	remaining = 120;
+	document.getElementById("start").style.display='none';
+	document.getElementById("all").style.display='block';
+}
+</script>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<div id="start">
+<p><b>COUNTING NUMBERS</b></p>
+<br>
+On starting this test, a matrix of numbers will appear on your left. 
+<br><br>Beside that will appear 7 numbers, in bold, with boxes.
+<br><br>Count how many times each of the blue numbers occurs in the matrix. 
+<br><br>Enter your answers in the boxes beside the numbers.
+<br><br><label style="color:red">You have 4 minutes to complete this.</label>
+<br><br>
+<button onclick="start()">Click here to start</button>
+</div>
+<div id="all" style="display:none">
+<div id="txt">
+<p>Count the number times each of the blue numbers occurs in the matrix of numbers on your left.</p>
+</div>
+<table>
+<tr>	
+<td><div id="pic">
+<img src="http://i.imgur.com/RZBOarw.png?2"/>
+</div></td>
+<td><div id="padding">&emsp;&emsp;&emsp;&emsp;</div></td>
+<td style="font-size:16px;font-family:Times">
+<b>Your answers</b>
+<table>
+<tr><td><label><b>236</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn1"></td></tr>
+<tr><td><label><b>519</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn2"></td></tr>
+<tr><td><label><b>860</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn3"></td></tr>
+<tr><td><label><b>423</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn4"></td></tr>
+<tr><td><label><b>156</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn5"></td></tr>
+<tr><td><label><b>610</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn6"></td></tr>
+<tr><td><label><b>549</b></label></td><td>&emsp;</td><td><input type="text" class="digit" id="timedn7"></td></tr></table></td>
+<td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+<td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+<td><div id="rem">Time remaining<br><br></div>
+<div style="font-size:30px"id="time"></div></td>
+</tr></table>
+<a class="myButton" onclick="submitGatc()">Continue</a>
+</div>
+<div id="errorDiv" style='font-size:18px'></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Banjara Academy Aptitude Test</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script0.js"></script>
+<script>
+function updateX() {
+
+	var check = document.getElementById("skip").checked;
+	if(check==true)
+		document.getElementById("stdX").style.display = 'none';
+	else
+		document.getElementById("stdX").style.display = 'inline';
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+<label style="font-size:3em">APTITUDE TEST</label><br>
+<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+</div>
+<p><label><b>COMPETITIVE EXAMS</b></label></p>
+<input type="checkbox" onclick="updateX()" id="skip" class="cbox">
+<label class="cbox" style="font-size:14px">I haven't attended any competitive exams yet</label>
+<br><br>
+<div id="stdX">
+<label style="font-size:14px">Details about the competitive exams you have taken.</label>
+<br>
+<table>
+<tr style="font-size:14px;color:#4f738e"><td><b>Name of the exam</b></td><td></td><td><b>Year</b></td><td></td><td><b>Rank</b></td></tr>
+<tr class="compex"><td><input type="text" id="comp1" class="email"></td><td>&emsp;</td>
+<td><input type="text" id="cy1" class="pin"></td>&emsp;<td></td>
+<td><input type="text" id="ry1" class="pin"></td></tr>
+<tr class="compex"><td><input type="text" id="comp2" class="email"></td><td>&emsp;</td>
+<td><input type="text" id="cy2" class="pin"></td><td>&emsp;</td>
+<td><input type="text" id="ry2" class="pin"></td></tr>
+<tr class="compex"><td><input type="text" id="comp3" class="email"></td><td>&emsp;</td>
+<td><input type="text" id="cy3" class="pin"></td><td>&emsp;</td>
+<td><input type="text" id="ry3" class="pin"></td></tr>
+<tr class="compex"><td><input type="text" id="comp4" class="email"></td><td>&emsp;</td>
+<td><input type="text" id="cy4" class="pin"></td><td>&emsp;</td>
+<td><input type="text" id="ry4" class="pin"></td></tr>
+<tr class="compex"><td><input type="text" id="comp5" class="email"></td><td>&emsp;</td>
+<td><input type="text" id="cy5" class="pin"></td><td>&emsp;</td>
+<td><input type="text" id="ry5" class="pin"></td></tr>
+</table>
+</div>
+<br><br>
+<a class="myButton" onclick="submitCompExam()">Continue</a>
+<div id="empty" style="display:none">
+You haven't provided any details.
+</div>
+<div id="incomp" style="display:none">
+Incomplete data. Please check.
+</div>
+</body>
+</html>
