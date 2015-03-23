@@ -39,9 +39,12 @@ public class BLR {
 	}
 	
 	private int toInt(String ans) {
-		if(ans == "always") return ALWAYS;
-		if(ans == "often") return OFTEN;
-		if(ans == "sometimes") return RARELY;
+		if(ans.equals("always")) 	
+			return ALWAYS;
+		if(ans.equals("often")) 	
+			return OFTEN;
+		if(ans.equals("rarely")) 
+			return RARELY;
 		else return NEVER;
 	}
 	
@@ -59,19 +62,22 @@ public class BLR {
 				case 4: answer = "NEVER";
 						break;
 			}			
-			allAnswers.append(Integer.toString(i+1) + ". " + answer + Html.br(1));			
+			String extra = i < 9 ? "&nbsp;":"";
+			allAnswers.append(Integer.toString(i+1) + ".&nbsp;" + extra + answer + Html.br(1));			
 		}
-		return Html.div(allAnswers.toString(), "blr-details");
+		return Html.div(allAnswers.toString(), "hidden-blr-detail");
 	}
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(Html.h(3,"BLR"))
-			.append(Html.br(1))
-			.append(dumpAnswers())
-			.append(Html.br(1))
 			.append(Html.b("Score: ") + Integer.toString(score))
-			.append(Html.br(2));
+			.append(Html.br(2))
+			.append(Html.button("Details", "toggleDetail('hidden-blr-detail')"))
+			.append(Html.br(2))
+			.append(dumpAnswers())		
+			.append(Html.br(1))
+			.append("<hr>");
 		return builder.toString();
 	}
 

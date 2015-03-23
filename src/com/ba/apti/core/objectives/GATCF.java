@@ -13,7 +13,7 @@ public class GATCF {
 	int wordCountUntimed;
 	int gatfTime; 
 	int gatfWCTime;
-	String [] remarks = new String[7];
+	String [] remarks = new String[8];
 	
 	private String dumpAnswers1() {
 		int [] keys = {236,519,860,423,156,610,549};
@@ -22,12 +22,13 @@ public class GATCF {
 		int wc = 24;
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append(Html.b("Timed version") + Html.br(1));
+		builder.append(Html.br(1));
 		
-		String rowHeader = Html.tr(Html.td(Html.b("Search for")) + 
-						Html.td(Html.b("Answer")) +
-						Html.td(Html.b("Actual no. of occurrences")) + 
-						Html.td(Html.b("Marks")));
+		String rowHeader = Html.thead(Html.tr(Html.th("Search for") + 
+						Html.th("Answer") +
+						Html.th("Actual no. of occurrences") + 
+						Html.th(Html.b("Marks"))));
+		
 		String [] rows = new String[7];
 		for(int i = 0; i < 7; i++) {
 			rows[i] = Html.tr(Html.td(Integer.toString(keys[i]))
@@ -39,11 +40,11 @@ public class GATCF {
 		String wordRow = Html.tr(Html.td("is")
 				+ Html.td(Integer.toString(wordCount))
 				+ Html.td(Integer.toString(wc))
-				+ Html.td(""));
-		builder.append(Html.table(rowHeader + rows[0] + rows[1] + rows[2] + rows[3]
-				+rows[4] + rows[5] + rows[6]) + wordRow);
+				+ Html.td(remarks[7]));
+		builder.append(Html.table(rowHeader + Html.tbody(rows[0] + rows[1] + rows[2] + rows[3]
+				+rows[4] + rows[5] + rows[6]) + wordRow));
 		
-		return Html.div(builder.toString(),"gatcf-timed");
+		return Html.div(builder.toString(),"hidden-gatcf-timed");
 	}
 	
 	private String dumpAnswers2() {
@@ -55,9 +56,9 @@ public class GATCF {
 		StringBuilder builder = new StringBuilder();
 		builder.append(Html.b("Timed version") + Html.br(1));
 		
-		String rowHeader = Html.tr(Html.td(Html.b("Search for")) + 
-						Html.td(Html.b("Answer")) +
-						Html.td(Html.b("Actual no. of occurrences"))); 
+		String rowHeader = Html.thead(Html.tr(Html.th("Search for") + 
+						Html.th("Answer") +
+						Html.th("Actual no. of occurrences"))); 
 
 		String [] rows = new String[8];
 		for(int i = 0; i < 7; i++) {
@@ -70,25 +71,32 @@ public class GATCF {
 				+ Html.td(Integer.toString(wordCount))
 				+ Html.td(Integer.toString(wc)));
 		
-		builder.append(Html.table(rowHeader + rows[0] + rows[1] + rows[2] + rows[3]
-				+rows[4] + rows[5] + rows[6]) + wordRow);
+		builder.append(Html.table(rowHeader + Html.tbody(rows[0] + rows[1] + rows[2] + rows[3]
+				+rows[4] + rows[5] + rows[6]) + wordRow));
 		
-		return Html.div(builder.toString(),"gatcf-untimed");
+		return Html.div(builder.toString(),"hidden-gatcf-untimed");
 	}
 
 	
 	public String toString() {		
 		StringBuilder gatcf = new StringBuilder();
-		gatcf.append(Html.h(3,"GAT-C&F") + Html.br(2));
-		gatcf.append(Html.b("Timed version") + Html.br(1));
-		gatcf.append(dumpAnswers1() + Html.br(1));
-		gatcf.append(Html.b("Score: ") + Double.toString(score));
+		gatcf.append(Html.h(3,"GAT-C&F"));
+		gatcf.append(Html.b("Timed version score: ") + Double.toString(score));
 		gatcf.append(Html.br(2));
-		gatcf.append(Html.b("Untimed version") + Html.br(1));
+		gatcf.append(Html.button("Details", "toggleDetail('hidden-gatcf-timed')"));
+		gatcf.append(Html.br(2));
+		gatcf.append(dumpAnswers1() + Html.br(1));
+		
+		gatcf.append(Html.b("Untimed version score: ") + Double.toString(uscore));	
+		gatcf.append(Html.br(1));
+		gatcf.append("Time taken(numbers): " + Integer.toString(gatfTime));
+		gatcf.append(Html.br(1));
+		gatcf.append("Time taken(\"is\"): " + Integer.toString(gatfWCTime));
+		gatcf.append(Html.br(2));
+		gatcf.append(Html.button("Details", "toggleDetail('hidden-gatcf-untimed')"));
+		gatcf.append(Html.br(2));
 		gatcf.append(dumpAnswers2() + Html.br(1));
-		gatcf.append(Html.b("Score: ") + Double.toString(uscore));
-		gatcf.append(Html.b("Time taken(numbers): ") + Integer.toString(gatfTime));
-		gatcf.append(Html.b("Time taken(\"is\"): ") + Integer.toString(gatfWCTime));
+		gatcf.append("<hr>");
 		return gatcf.toString();		
 	}
 	
@@ -116,14 +124,19 @@ public class GATCF {
 		int wc = 24;
 		int wcUntimed = 30;
 		
-		if(wordCount == wc)
+		remarks[7] = "0";
+		if(wordCount == wc) {
 			score += 1.0;
+			remarks[7] = "(+1)";
+		}
 			
-		else if(Math.abs(wordCount-wc) == 1)
+		else if(Math.abs(wordCount-wc) == 1) {
 			score += 0.5;
+			remarks[7] = "(+0.5)";
+		}
 		
 		for(int i = 0; i < answerVector.length; i++) {
-			remarks[i] = "(+1)";
+			remarks[i] = "0";
 			if(answerVector[i] == numberCounts[i]) { 
 				score += 1.0;
 				remarks[i] = "(+1)";

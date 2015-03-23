@@ -86,36 +86,36 @@ public class STMT {
 	
 	public String toString() {
 		StringBuilder stmt = new StringBuilder();
-		stmt.append(Html.h(3, "STMT"));
-		stmt.append(Html.b("Words"));
-		stmt.append(Html.br(1));
-		stmt.append(Html.i("Words reproduced by candidate: "));
+		stmt.append(Html.h(3, "STMT"));		
+		stmt.append(Html.b("Words reproduced: "));	
 		for(int i = 0; i < stmt1.length; i++ )
-			stmt.append(stmt1[i] + "&nbsp;&nbsp;");
+			stmt.append(stmt1[i]  + "&nbsp;&nbsp;");
 		stmt.append(Html.br(1));
-		stmt.append(Html.i("The above words almost matched: "));
+		stmt.append(Html.b("Words matching: "));
 		for(int i = 0; i < stmt1.length; i++) {
 			if(matched1[i])
 				stmt.append(stmt1Answers[i] + "&nbsp;&nbsp;");
 		}
-		stmt.append(Html.b("Score: ") + Integer.toString(score1));
+		stmt.append(Html.br(1) + Html.b("Score: ") + Integer.toString(score1));
 		
 		stmt.append(Html.br(2));
-		stmt.append(Html.b("Questions"));
-		stmt.append(Html.br(1));
-		stmt.append(Html.i("Answers given (in order): "));
-		for(int i = 0; i < stmt2.length; i++ )
+		stmt.append(Html.b("Answers given:"));		
+		
+		for(int i = 1; i < stmt2.length; i++ )
 			stmt.append(stmt2[i] + "&nbsp;&nbsp;");
-		stmt.append(Html.i("Answers that are close:"));
+		stmt.append(Html.br(1));
+		stmt.append(Html.b("Answers matching:"));
 		for(int i = 0; i < stmt2.length; i++) {
 			if(matched2[i])
 				stmt.append(stmt2Answers[i] + "&nbsp;&nbsp;");
 		}
-		stmt.append(Html.b("Score: ") + Integer.toString(score2));
+		stmt.append(Html.br(1) + Html.b("Score: ") + Integer.toString(score2));
+		
 		
 		stmt.append(Html.br(2));
 		stmt.append(Html.i("Note: The computer is only able to guess the score for this section. Manual verification needed."));
-		stmt.append(Html.br(3));
+		stmt.append(Html.br(1));
+		stmt.append("<hr>");
 
 		return Html.div(stmt.toString(), "stmt");
 	}

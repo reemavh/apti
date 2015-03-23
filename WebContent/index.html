@@ -11,6 +11,7 @@
 <script>
 function start() {
 	if(typeof(Storage)!="undefined") {
+		window.localStorage.clear();
 		window.location.href="a1.htm";
 	} else {
 		alert("Old browser. Please upgrade.");

@@ -11,6 +11,7 @@ import com.ba.apti.core.objectives.GATM;
 import com.ba.apti.core.objectives.IE;
 import com.ba.apti.core.objectives.STMT;
 import com.ba.apti.core.objectives.TIQ;
+import com.ba.apti.util.Html;
 
 
 public class Objective {
@@ -57,7 +58,9 @@ public class Objective {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(ieAnswers.toString())
+		
+		builder.append(Html.h(2, "Aptitude"))
+				.append(ieAnswers.toString())
 			   .append(dsAnswers.toString())
 			   .append(bmAnswers.toString())
 			   .append(gatcfAnswers.toString())

@@ -28,17 +28,34 @@ public class GATM {
 				score += scoreVector[i];
 				remark[i] = "(correct)";
 			}
-			remark[i] = "(wrong)";
-		}
+			else
+				remark[i] = "(wrong)";
+
+		}		
 	}
 	
-	public String toString() {
+	public String dumpAnswers() {
 		StringBuilder allAnswers = new StringBuilder();
 		for(int i = 0; i < 15; i++) {
 			allAnswers.append(Integer.toString(i) + ". " + answers[i] + remark[i]);
 			allAnswers.append(Html.br(1));
 		}
-		return Html.div(allAnswers.toString(), "gatm-details");
+		return Html.div(allAnswers.toString(), "hidden-gatm-details");
+
+	}
+	
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(Html.h(3,"GATM"))
+			.append(Html.br(1))
+			.append(Html.b("Score: ") + Integer.toString(score))
+			.append(Html.br(2))
+			.append(Html.button("Details", "toggleDetail('hidden-gatm-details')"))
+			.append(Html.br(2))
+			.append(dumpAnswers())
+			.append(Html.br(1))
+			.append("<hr>");
+		return builder.toString();
 
 	}
 	

@@ -33,12 +33,11 @@ public class ISI {
 	private void evaluate() {
 		for(int i = 0; i < answerArray.length; i++)
 			if( answerArray[i] != 0 )
-				scores[(i%6==0?6:i%6)-1]++;
+				scores[i%6]++;
 	}
 	
-	public String toString() {
+	private String dumpAnswers() {
 		StringBuilder isiBuilder = new StringBuilder();
-		isiBuilder.append(Html.h(2, "Interest Inventory"));
 		isiBuilder.append(Html.i("Selected options are in bold") + Html.br(2));
 		
 		//matrix
@@ -47,17 +46,19 @@ public class ISI {
 			StringBuilder columns = new StringBuilder();
 			for(int j = 0; j < 5; j++) {
 				String column = Html.td((
-						answerArray[i*5+j] == 1) ? Html.b(new Integer(i*5+j).toString()) : new Integer(i*5+j).toString());
+						answerArray[j*6+i] == 1) ? Html.b(new Integer(j*6+i+1).toString()) : new Integer(j*6+i+1).toString());
 				columns.append(column);
 			}
 			rows.append(Html.tr(columns.toString()));
 		}
-		isiBuilder.append(Html.table(rows.toString()));
-		
-		isiBuilder.append(Html.br(2));
-		
+		isiBuilder.append(Html.table(Html.tbody(rows.toString())));
+		return Html.div(isiBuilder.toString(), "hidden-isi");
+	}
+	public String toString() {
+		StringBuilder isiBuilder = new StringBuilder();
+		isiBuilder.append(Html.h(2, "Interest Inventory"));			
 		//scores
-		String rowh = Html.tr(Html.td(Html.b("Profession")) + Html.td(Html.b(("Score"))));
+		String rowh = Html.tr(Html.th("Profession") + Html.th(("Score")));
 		String row1 = Html.tr(Html.td("Mechanical") + Html.td(Integer.toString(scores[0])));
 		String row2 = Html.tr(Html.td("Medicine") + Html.td(Integer.toString(scores[1])));
 		String row3 = Html.tr(Html.td("Literary") + Html.td(Integer.toString(scores[2])));
@@ -65,10 +66,13 @@ public class ISI {
 		String row5 = Html.tr(Html.td("Business/Marketing") + Html.td(Integer.toString(scores[4])));
 		String row6 = Html.tr(Html.td("Fashion/Interiors") + Html.td(Integer.toString(scores[5])));
 		
-		isiBuilder.append(Html.table(rowh + row1 + row2 + row3 + row4 + row5 + row6));
+		isiBuilder.append(Html.table(Html.thead(rowh) + Html.tbody(row1 + row2 + row3 + row4 + row5 + row6)));
 		
+		isiBuilder.append(Html.br(1));
+		isiBuilder.append(Html.button("Details", "toggleDetail('hidden-isi')"));
 		isiBuilder.append(Html.br(2));
-		
+		isiBuilder.append(dumpAnswers());
+		isiBuilder.append(Html.br(2) + "<hr>");
 		return isiBuilder.toString();
 	}
 

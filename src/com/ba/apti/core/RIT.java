@@ -36,34 +36,41 @@ public class RIT {
 
 	public String toString() {
 		StringBuilder ritBuilder = new StringBuilder();
-		ritBuilder.append(Html.h(2, "RIT 5"));
+		ritBuilder.append(Html.h(2, "RIT 5"));		
 		ritBuilder.append(Html.br(1));
-		for(int i = 0; i < 10; i++) {
-			ritBuilder.append(Html.b(options[i]) + Html.br(1));
-			
-			if(i == 9)
-				ritBuilder.append(options[rit[i]] + Html.br(2));
-			else {
-				ritBuilder.append(priorities[rit[i]]);
-				if(i==0 && placeHow!= null)
-					ritBuilder.append(placeHow + Html.br(2));
-				if(i==1 && foodHow!= null)
-					ritBuilder.append(foodHow + Html.br(2));
-				if(i==2 && backHow!= null)
-					ritBuilder.append(backHow + Html.br(2));
-			}
+		String header = Html.thead(Html.tr((Html.th("Option") + Html.th("Priority") + Html.th("Details"))));
+		StringBuilder rows = new StringBuilder();
+		for(int i = 0; i < 9; i++) {
+			String column1 = Html.td(options[i]);	
+			String column2 = Html.td(priorities[rit[i]]);
+			String column3 = Html.td("Not applicable");
+			if(i==0 && placeHow!= null)
+				column3 = Html.td(placeHow);
+			if(i==1 && foodHow!= null)
+				column3 = Html.td(foodHow);
+			if(i==2 && backHow!= null)
+				column3 = Html.td(backHow);
+			rows.append(Html.tr(column1+column2+column3));
 		}
+		ritBuilder.append(Html.table(header+Html.tbody(rows.toString())));
+		
+		ritBuilder.append(Html.br(1));
+		ritBuilder.append(Html.b("Top priority task identified"));
+		ritBuilder.append(Html.br(1));
+		ritBuilder.append(options[rit[9]] + Html.br(2));
+
 		ritBuilder.append(Html.b("Other options to explore"));
+		ritBuilder.append(Html.br(1));
 		ritBuilder.append(otherActivity + Html.br(2));
 		return ritBuilder.toString();
 	}
 
 	                    
 	String [] priorities = {
-			"Would not do at all",
-			"Low priority/would postpone",
-			"Moderate priority/sometime",
-			"High priority/immediately"
+			"Won't do",
+			"Low priority",
+			"Moderate priority",
+			"High priority"
 	};
 	
 	String [] options = {

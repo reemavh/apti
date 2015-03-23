@@ -23,10 +23,11 @@ public class Academics {
 	public String toString() {
 		String header = Html.h(2, "Academics");
 		StringBuilder section = new StringBuilder();
+		section.append(Html.br(2));
 		section.append(header);
 		section.append(stdIX.toString() + stdX.toString() + stdXI.toString()
 				 + stdXII.toString() + higherStudies.toString() + compExams.toString());
-		section.append(Html.br(3));
+		section.append(Html.br(3) + "<hr>");
 		return section.toString();
 	}
 	
@@ -52,11 +53,17 @@ class SchoolYear {
 	String board;
 	String yearOfPassing;
 	HashMap<String,String> marksMap;
+	private boolean notAttended = false;
 	
 	public String toString() {
+		
 		StringBuilder section = new StringBuilder();
-		section.append(Html.h(3, "Standard " + academicYear))		
-			.append(Html.b("Name of school: "))
+		section.append(Html.h(4, "Standard " + academicYear));	
+		if(notAttended) {
+			section.append("Yet to attend standard " + academicYear + "<br><br>");
+			return section.toString();
+		}
+		section.append(Html.b("Name of school: "))
 			.append(schoolName)
 			.append(Html.br(1))
 			.append(Html.b("Board: "))
@@ -70,22 +77,26 @@ class SchoolYear {
 		StringBuilder nameRow = new StringBuilder();
 		for(String subject : marksMap.keySet())
 			if(!subject.equals("Enter subject name"))
-				nameRow.append(Html.td(Html.i(subject.toLowerCase()) + Html.emsp()));
+				nameRow.append(Html.th(subject.toLowerCase()) + Html.emsp());
 		
 		StringBuilder marksRow = new StringBuilder();
 		for(String marks : marksMap.values())
 			if(!marks.isEmpty())				
 				marksRow.append(Html.td(marks));
 		
-		String table = Html.table(Html.tr(nameRow.toString()) + Html.tr(marksRow.toString()));
+		String table = Html.table(Html.thead(Html.tr(nameRow.toString())) + Html.tbody(Html.tr(marksRow.toString())));
 		section.append(table);
-		section.append(Html.br(3));
+		section.append(Html.br(1));
 		return Html.div(section.toString(), "");
 	}
 	
 	public SchoolYear(JSONObject fullJson, String yearPrefix) {
-		academicYear = yearPrefix == "9" ? "IX" : yearPrefix;		
-		this.schoolName = fullJson.get("school" + yearPrefix).toString();
+		academicYear = yearPrefix == "9" ? "IX" : yearPrefix;
+		if(fullJson.get("school" + yearPrefix) == null) {
+			notAttended = true;
+			return;
+		}
+		this.schoolName = fullJson.get("school" + yearPrefix).toString();		
 		this.board = fullJson.get("board"+yearPrefix).toString();
 		this.yearOfPassing = fullJson.get("year"+yearPrefix).toString();
 		marksMap = new HashMap<String,String>();
@@ -126,16 +137,20 @@ class HigherStudies {
 	String [] yearEnd;
 	String [] percentage;
 	String comments;
+	boolean notAttended = false;
 	
 	public String toString() {
 		StringBuilder section = new StringBuilder();
-		String sectionHeader = Html.h(3, "Higher Education");
+		String sectionHeader = Html.h(4, "Higher Education");
+		if(notAttended) {
+			return sectionHeader + "I haven't pursued higher eduction yet <br><br>";
+		}
 		String college = Html.b("College Name: ") + collegeName;
 		String course =  Html.b("CourseName: ") + courseName;
 		
-		String namesRow = Html.tr(Html.td(Html.b("Started In"))
-				 + Html.td(Html.b("Completed In"))
-				 +Html.td(Html.b("Total Percentage Marks")));
+		String namesRow = Html.tr(Html.th("Started In")
+				 + Html.th("Completed In")
+				 +Html.th("Total Percentage Marks"));
 		String year1 = Html.tr(Html.td(yearStart[0]) + Html.td(yearEnd[0]) + Html.td(percentage[0]));
 		String year2 = Html.tr(Html.td(yearStart[1]) + Html.td(yearEnd[1]) + Html.td(percentage[1]));
 		String year3 = Html.tr(Html.td(yearStart[2]) + Html.td(yearEnd[2]) + Html.td(percentage[2]));
@@ -148,10 +163,11 @@ class HigherStudies {
 		.append(Html.br(1))
 		.append(course)
 		.append(Html.br(2))
-		.append(Html.table(namesRow + year1 + year2 + year3 + year4))
-		.append(Html.br(2))
-		.append(otherComments)
-		.append(Html.br(3));
+		.append(Html.table(Html.thead(namesRow)
+				+ Html.tbody(year1 + year2 + year3 + year4)))
+		.append(Html.br(1))
+		.append(Html.b("Comments: ") + otherComments)
+		.append(Html.br(1));
 		
 		return Html.div(section.toString(),"");
 	}
@@ -163,6 +179,10 @@ class HigherStudies {
 	}
 	
 	public void getHigherStudiesInfo(JSONObject fullJson) {
+		if(fullJson.get("gradCollege") == null) {
+			notAttended = true;
+			return;
+		}
 		collegeName = fullJson.get("gradCollege").toString();
 		courseName = fullJson.get("gradCourse").toString();
 		comments = fullJson.get("hcomments").toString();
@@ -180,23 +200,33 @@ class CompetitiveExams {
 	String [] examNames;
 	String [] years;
 	String [] ranks;
+	boolean notAttended;
 	
 	public String toString() {
-		String header = Html.h(3, "Competitive Exams");
-		String headerRow = Html.tr(Html.td(Html.b("Examination name"))
-				+ Html.td(Html.b("Year"))
-				+ Html.td(Html.b("Rank")));
-		String row1 = Html.tr(Html.td(examNames[0]) + Html.td(years[0]) + Html.td(ranks[0]));
-		String row2 = Html.tr(Html.td(examNames[1]) + Html.td(years[1]) + Html.td(ranks[1]));
-		String row3 = Html.tr(Html.td(examNames[2]) + Html.td(years[2]) + Html.td(ranks[2]));
-		String row4 = Html.tr(Html.td(examNames[3]) + Html.td(years[3]) + Html.td(ranks[3]));
-		String row5 = Html.tr(Html.td(examNames[4]) + Html.td(years[4]) + Html.td(ranks[4]));
+		String row1 = "", row2 = "", row3 = "", row4 = "", row5 = "";
+		String header = Html.h(4, "Competitive Exams");
+		if(notAttended) {
+			return header + "I haven't attended any yet <br><br>";
+		}
+		String headerRow = Html.tr(Html.th("Examination name")
+				+ Html.th("Year")
+				+ Html.th("Rank"));
+		if(!examNames[0].isEmpty())
+			 row1 = Html.tr(Html.td(examNames[0]) + Html.td(years[0]) + Html.td(ranks[0]));
+		if(!examNames[1].isEmpty())
+			 row2 = Html.tr(Html.td(examNames[1]) + Html.td(years[1]) + Html.td(ranks[1]));
+		if(!examNames[2].isEmpty())
+			 row3 = Html.tr(Html.td(examNames[2]) + Html.td(years[2]) + Html.td(ranks[2]));
+		if(!examNames[3].isEmpty())
+			 row4 = Html.tr(Html.td(examNames[3]) + Html.td(years[3]) + Html.td(ranks[3]));
+		if(!examNames[4].isEmpty())
+			 row5 = Html.tr(Html.td(examNames[4]) + Html.td(years[4]) + Html.td(ranks[4]));
 		
 		StringBuilder section = new StringBuilder();
 		section.append(header)
 			.append(Html.br(1))
-			.append(Html.table(headerRow + row1 + row2 + row3 + row4 + row5))
-			.append(Html.br(3));
+			.append(Html.table(Html.thead(headerRow) + Html.tbody(row1 + row2 + row3 + row4 + row5)))
+			.append(Html.br(1));
 		
 		return Html.div(section.toString(),"");
 	}
@@ -208,6 +238,15 @@ class CompetitiveExams {
 	}
 	
 	public void getCompetitiveExamsInfo(JSONObject fullJson) {
+		if (fullJson.get("comp1") == null 
+				&& fullJson.get("comp2") == null
+				&& fullJson.get("comp4") == null 
+				&& fullJson.get("comp3") == null
+				&& fullJson.get("comp5") == null) {
+					notAttended = true;
+					return;
+				}
+			
 		for(int i = 0; i < 5; i++) {
 			examNames[i] = fullJson.get("comp"+(i+1)).toString();
 			years[i] = fullJson.get("cy"+(i+1)).toString();

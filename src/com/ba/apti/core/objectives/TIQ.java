@@ -29,13 +29,27 @@ public class TIQ {
 				remarks[i] = "(wrong)";
 	}
 	
-	public String toString() {
+	public String dumpAnswers() {
 		StringBuilder allAnswers = new StringBuilder();
 		for(int i = 0; i < 15; i++) {
 			allAnswers.append(Integer.toString(i) + ". " + answers[i] + remarks[i]);
 			allAnswers.append(Html.br(1));
 		}
-		return Html.div(allAnswers.toString(), "tiq-details");
+		return Html.div(allAnswers.toString(), "hidden-tiq-details");
+	}
+	
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(Html.h(3,"TIQ"))
+			.append(Html.br(1))
+			.append(Html.b("Score: ") + Integer.toString(score))
+			.append(Html.br(2))
+			.append(Html.button("Details", "toggleDetail('hidden-tiq-details')"))
+			.append(Html.br(2))
+			.append(dumpAnswers())
+			.append(Html.br(1))
+			.append("<hr>");
+		return builder.toString();
 	}
 
 }

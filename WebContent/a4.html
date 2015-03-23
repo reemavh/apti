@@ -10,7 +10,7 @@ function populateYears() {
 	var obj=document.getElementById("yearXI");
 	var d = new Date();
 	var year = d.getFullYear();
-	for(var i=year-10; i>=year-40; i--) {
+	for(var i=year; i>=year-40; i--) {
 		var option = document.createElement("option");
 		option.value= "" + i;
 		option.text = "" + i

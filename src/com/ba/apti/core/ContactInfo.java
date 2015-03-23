@@ -26,6 +26,27 @@ public class ContactInfo {
 		address = fullJson.get("address").toString();
 	}
 
+	
+	public String getName() {
+		return name;
+	}
+
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPhone1() {
+		return phone1;
+	}
+
+	public String getPhone2() {
+		return phone2;
+	}
+	
 	public String toString() {
 		String header = Html.h(2, "Contact Information")+ Html.br(1);;
 		String name = Html.b("Name: ") + (title + ". " + this.name) + Html.br(1);

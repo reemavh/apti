@@ -5,7 +5,19 @@ package com.ba.apti.util;
 public class Html {
 	
 	public static String table(String content) {
-		return "<table>" + content + "</table>";				
+		return "<table style=\"padding:1px\" class=\"table table-condensed table-bordered table-striped\">" + content + "</table>";				
+	}
+	
+	public static String thead(String content) {
+		return "<thead>" + content + "</thead>";
+	}
+	
+	public static String th(String content) {
+		return "<th>" + content + "</th>";
+	}
+	
+	public static String tbody(String content) {
+		return "<tbody>" + content + "</tbody>";
 	}
 	
 	public static String tr(String content) {
@@ -60,6 +72,10 @@ public class Html {
 		if(id.startsWith("hidden"))
 			return "<div id=\"" + id + "\" style=\"display:none\">" + content + "</div>";
 		return "<div id=\"" + id + "\">" + content + "</div>";
+	}
+	
+	public static String button(String content, String onclick) {
+		return "<button onclick=\"" + onclick + "\">" + content + "</button>";
 	}
 	
 	public static String emsp() {

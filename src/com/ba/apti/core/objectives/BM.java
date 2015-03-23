@@ -40,9 +40,9 @@ public class BM {
 	}
 	
 	private int toInt(String ans) {
-		if(ans == "always") return ALWAYS;
-		if(ans == "mostly") return MOSTLY;
-		if(ans == "sometimes") return SOMETIMES;
+		if(ans.equals("always")) return ALWAYS;
+		if(ans.equals("mostly")) return MOSTLY;
+		if(ans.equals("sometimes")) return SOMETIMES;
 		else return VERY_RARELY;
 	}
 	
@@ -60,19 +60,22 @@ public class BM {
 				case 4: answer = "VERY RARELY";
 						break;
 			}			
-			allAnswers.append(Integer.toString(i+1) + ". " + answer + Html.br(1));			
+			String extra = i < 9 ? "&nbsp;":"";
+			allAnswers.append(Integer.toString(i+1) + ".&nbsp;" + extra + answer + Html.br(1));			
 		}
-		return Html.div(allAnswers.toString(), "bm-details");
+		return Html.div(allAnswers.toString(), "hidden-bm-detail");
 	}
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(Html.h(3,"DS"))
+		builder.append(Html.h(3,"BM"))
+			.append(Html.b("Score: ") + Double.toString(score))			
+			.append(Html.br(2))
+			.append(Html.button("Details", "toggleDetail('hidden-bm-detail')"))
+			.append(Html.br(2))
+			.append(dumpAnswers())					
 			.append(Html.br(1))
-			.append(dumpAnswers())
-			.append(Html.br(1))
-			.append(Html.b("Score: ") + Double.toString(score))
-			.append(Html.br(2));
+			.append("<hr>");
 		return builder.toString();
 	}
 	

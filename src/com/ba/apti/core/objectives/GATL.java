@@ -26,11 +26,13 @@ public class GATL {
 		
 		for(int i=0;i<15;i++) {
 			if(answers[i].equalsIgnoreCase(ansVector[i])) {
-				score += scoreVector[i];
+				score += scoreVector[i];				
 				remark[i] = "(correct)";
 			}
-			remark[i] = "(wrong)";
+			else
+				remark[i] = "(wrong)";
 		}
+		
 	}
 
 	private String dumpAnswers() {
@@ -39,17 +41,20 @@ public class GATL {
 			allAnswers.append(Integer.toString(i) + ". " + answers[i] + remark[i]);
 			allAnswers.append(Html.br(1));
 		}
-		return Html.div(allAnswers.toString(), "gatl-details");
+		return Html.div(allAnswers.toString(), "hidden-gatl-details");
 	}
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(Html.h(3,"BLR"))
-			.append(Html.br(1))
-			.append(dumpAnswers())
+		builder.append(Html.h(3,"GATL"))
 			.append(Html.br(1))
 			.append(Html.b("Score: ") + Integer.toString(score))
-			.append(Html.br(2));
+			.append(Html.br(2))
+			.append(Html.button("Details", "toggleDetail('hidden-gatl-details')"))
+			.append(Html.br(2))
+			.append(dumpAnswers())
+			.append(Html.br(1))
+			.append("<hr>");
 		return builder.toString();
 
 	}

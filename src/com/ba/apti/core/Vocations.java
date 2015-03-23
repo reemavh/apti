@@ -21,9 +21,13 @@ public class Vocations {
 			vocationsAll[i] = Integer.parseInt(tokens[i]);
 		}
 		
-		vocation1 = fullJson.get("vocTwo").toString().split("|")[0];
-		vocation2 = fullJson.get("vocTwo").toString().split("|")[1];
+		if(fullJson.get("vocTwo").toString().split("\\|").length ==  1)
+			vocation1 = fullJson.get("vocTwo").toString().split("\\|")[0];
+		if(fullJson.get("vocTwo").toString().split("\\|").length ==  2)
+			vocation2 = fullJson.get("vocTwo").toString().split("\\|")[1];
 		
+		System.out.println("vocation1 = " + vocation1);
+		System.out.println("vocation2 = " + vocation2);
 		evaluate();
 	}
 	
@@ -46,14 +50,17 @@ public class Vocations {
 			scores[groups[vocationsAll[i]-1]-1]++;	
 	}
 	
+	private String dumpAnswers() {
+		StringBuilder vocations = new StringBuilder();
+		vocations.append(Html.b("Vocations chosen") + Html.br(2));
+		for(int i = 0; i < nSelected; i++) 
+			vocations.append(professions[vocationsAll[i]] + Html.br(1));		
+		return Html.div(vocations.toString(), "hidden-vocations");
+	}
 	public String toString() {
 		StringBuilder vocations = new StringBuilder();
 		vocations.append(Html.h(2, "Vocation Test"));
-		vocations.append(Html.b("Vocations chosen") + Html.br(2));
-		for(int i = 0; i < nSelected; i++) 
-			vocations.append(professions[vocationsAll[i]] + Html.br(1));
-		vocations.append(Html.br(2));
-		vocations.append(Html.b("Vocation chosen by category") + Html.br(1));
+		vocations.append(Html.b("Vocations chosen by category") + Html.br(1));
 		String row1 = Html.tr(Html.td("Finance") + Html.td(Integer.toString(scores[0])));
 		String row2 = Html.tr(Html.td("Entertainment") + Html.td(Integer.toString(scores[1])));
 		String row3 = Html.tr(Html.td("Adnventure") + Html.td(Integer.toString(scores[2])));
@@ -62,15 +69,22 @@ public class Vocations {
 		String row6 = Html.tr(Html.td("Humanities") + Html.td(Integer.toString(scores[5])));
 		String row7 = Html.tr(Html.td("Management") + Html.td(Integer.toString(scores[6])));
 		String row8 = Html.tr(Html.td("Administration") + Html.td(Integer.toString(scores[7])));
-		vocations.append(Html.table(row1+row2+row3+row4+row5+row6+row7+row8));
+		vocations.append(Html.table(row1+row2+row3+row4+row5+row6+row7+row8));		
+		vocations.append(Html.br(1));
+		vocations.append(Html.button("Details", "toggleDetail('hidden-vocations')"));
+		vocations.append(Html.br(2));
+		vocations.append(dumpAnswers());
 		vocations.append(Html.br(2));
 		vocations.append(Html.b("Two top preferences chosen") + Html.br(1));
 		vocations.append(vocation1 + Html.br(1));
-		vocations.append(vocation2 + Html.br(1));
+		if(vocation2 != null)
+			vocations.append(vocation2 + Html.br(1));
+		vocations.append(Html.br(2) + "<hr>");
 		return vocations.toString();
 	}
 	
-	private String [] professions = {"Accountant/ C.A.",
+	private String [] professions = {
+					   "Accountant/ C.A.",
 	                   "Advertising Work",
 	                   "Aerial Photographer",
 	                   "Air Hostess/ Steward",
@@ -181,6 +195,7 @@ public class Vocations {
 	                   "TV Script writer",
 	                   "Veterinarian",
 	                   "Wild life Specialist",
-	                   "Writer/ publisher"};
+	                   "Writer/ publisher"
+	};
 
 }

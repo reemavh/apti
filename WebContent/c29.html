@@ -7,7 +7,7 @@
 <script src="script1.js"></script>
 <script>
 var remaining = -1;
-var inI2 = setInterval(showRemaining,1000);
+var inI2 = -1;
 function showRemaining() {
 	if (remaining < 0)
 		return;
@@ -28,10 +28,13 @@ function start() {
 	document.getElementById("time").style.display="inline";
 	document.getElementById("words").style.display="inline";
 	document.getElementById("showb").style.display="none";
+	inI2 = setInterval(showRemaining,1000);
 }
 
+///////////////////////
+
 var remaining1 = -1;
-var inI1 = setInterval(showRemaining1,1000);
+var inI1 = -1;
 function showRemaining1() {
 	if (remaining1 < 0)
 		return;
@@ -52,6 +55,7 @@ function start1() {
 	document.getElementById("time1").style.display="inline";
 	document.getElementById("ques").style.display="inline";
 	document.getElementById("showb1").style.display="none";
+	inI1 = setInterval(showRemaining1,1000);
 }
 </script>
 <body>
@@ -60,15 +64,18 @@ function start1() {
 <label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
 </div>
 <p><label style="font-size:18px;color:#4f738e"><b>General Aptitude Questions</b></label></p>
-<div id="0" style="display:none;font-size:18px">
+<div id="0" style="font-size:18px">
 <br>
-<p>We will now ask some multiple choice questions related to general aptitude.</p>
-<p>Press <b>Next</b> to start.</p>
+<p>We will now ask some multiple choice questions related to general aptitude.
+<br><br>
+<label style="color:red"><b>DO NOT PRESS THE BACK AND REFRESH BUTTONS. THIS WILL RESTART THE TEST.</b></label>
+</p>
+<p>Press <b>Start</b> to begin.</p>
 <br>
-<button style="width:6%;height:6%" onclick="begin()">Next</button> 
+<button style="width:6%;height:6%" onclick="begin()">Start</button> 
 
 </div>
-<div id="1" style="font-size:18px">
+<div id="1" style="display:none;font-size:18px">
 	<label>When somebody suggests something to you, do you accept it easily?</label><br>
     <p><input name="yesNo" type="radio" id="yn1y" /><label>&nbsp;&nbsp;Yes</label></p>
     <p><input name="yesNo" type="radio" id="yn1n" /><label>&nbsp;&nbsp;No</label></p>
@@ -1224,23 +1231,24 @@ Ten words!
 </div>
 <div id="time" style="display:none">Time left:  <b>30 seconds</b></div>
 <div id="epi" style="display:none">
-<p>Thanks! Please remember the words.</p>
+<p>Please remember the words.</p>
+<br>
 <button style="width:6%;height:6%" onclick="nextQuestion(143)">Next</button>
 </div>
 </div>
 <div id="144" style='display:none;font-size:18px'>
 <p>A short while ago we asked you to read <b>ten words</b> and remember them! Please reproduce them here.</p>
 <ul>
-<li><input type="text" id="tw1"></li>
-<li><input type="text" id="tw2"></li>
-<li><input type="text" id="tw3"></li>
-<li><input type="text" id="tw4"></li>
-<li><input type="text" id="tw5"></li>
-<li><input type="text" id="tw6"></li>
-<li><input type="text" id="tw7"></li>
-<li><input type="text" id="tw8"></li>
-<li><input type="text" id="tw9"></li>
-<li><input type="text" id="tw10"></li>
+<li><input type="text" class="pin" id="tw1"></li>
+<li><input type="text" class="pin" id="tw2"></li>
+<li><input type="text" class="pin" id="tw3"></li>
+<li><input type="text" class="pin" id="tw4"></li>
+<li><input type="text" class="pin" id="tw5"></li>
+<li><input type="text" class="pin" id="tw6"></li>
+<li><input type="text" class="pin" id="tw7"></li>
+<li><input type="text" class="pin" id="tw8"></li>
+<li><input type="text" class="pin" id="tw9"></li>
+<li><input type="text" class="pin" id="tw10"></li>
 </ul>
 <button style="width:6%;height:6%" onclick="submitTW(144)">Next</button>
 </div>
@@ -1261,7 +1269,7 @@ Ten words!
 </div>
 <div id="time1" style="display:none">Time left:  <b>30 seconds</b></div>
 <div id="epi1" style="display:none">
-<p>Thanks! Please remember the questions and their answers.</p>
+<p>Please remember the questions and their answers.</p>
 <button style="width:6%;height:6%" onclick="nextQuestion(145)">Next</button>
 </div>
 

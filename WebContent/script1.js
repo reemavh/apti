@@ -1,6 +1,17 @@
+var index = -1;
+var array=[];
 function begin() {
-	var divId = 0;
-	var nextDivId = 1;
+	var divId = 0;	
+	for(var i=1;i<=142; i++)
+		if(i != 129 && i!=130)
+			array.push(i);
+	schuffle(array); 
+	array.splice(65, 0, 143);
+	array.splice(70, 0, 144);
+	array.splice(120,0,145);
+	array.splice(125,0,146);	
+	array.push(147);
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 }
@@ -14,7 +25,7 @@ function ieAns(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 	var key = "ie"+divId;
@@ -28,7 +39,7 @@ function dsAns(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 	var key = "ds"+(divId-20);
@@ -42,7 +53,7 @@ function bmAns(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';	
 	var key = "bm"+(divId-40);
@@ -56,7 +67,7 @@ function blrAns(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';	
 	var key = "blr"+(divId-65);
@@ -76,7 +87,7 @@ function tiqAns(num) {
 	if(ans == "null") return;
 
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 	//tiq[divId-97] = ans;
@@ -113,7 +124,7 @@ function gatlAns(num) {
 		localStorage.setItem("gatl3", ans);
 		
 		divId = num;
-		nextDivId = num+3;
+		nextDivId = array[++index];
 
 	}
 	else {
@@ -128,7 +139,7 @@ function gatlAns(num) {
 		localStorage.setItem(key, ans);
 		
 		divId = num;
-		nextDivId = num+1;
+		nextDivId = array[++index];
 	}
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';	
@@ -162,7 +173,7 @@ function gatmAns(num) {
 	localStorage.setItem(key, answer);
 	
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 	
@@ -170,7 +181,7 @@ function gatmAns(num) {
 
 function nextQuestion(num) {
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 	
@@ -223,7 +234,7 @@ function submitTW(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 }
@@ -254,7 +265,7 @@ function submitFQ(num) {
 		return;
 	}
 	var divId = num;
-	var nextDivId = num+1;
+	var nextDivId = array[++index];
 	document.getElementById(divId).style.display='none';
 	document.getElementById(nextDivId).style.display='block';
 }
@@ -323,24 +334,24 @@ function submitGatf1() {
 }
 
 function openVocTest1() {	
-	var professions = ["Accountant/ C.A.",
+	var professions = ["Accountant or CA",
 	                   "Advertising Work",
 	                   "Aerial Photographer",
-	                   "Air Hostess/ Steward",
+	                   "Air Hostess or Steward",
 	                   "Air traffic Controller",
 	                   "Airlines executive",
-	                   "Anchoring/ RJ/ DJ",
-	                   "Appraiser / valuer",
+	                   "Anchoring or RJ or DJ",
+	                   "Appraiser or valuer",
 	                   "Archaeologist",
 	                   "Army Officer",
 	                   "Astronaut",
 	                   "Athletics coach",
 	                   "Banker",
 	                   "Biotechnologist",
-	                   "Budget/Finance planner",
+	                   "Budget or Finance planner",
 	                   "Business consultant",
-	                   "Cartoonist/animator",
-	                   "CBI/Intelligence Officer",
+	                   "Cartoonist or animator",
+	                   "CBI or Intelligence Officer",
 	                   "Child Counselor",
 	                   "City Planner",
 	                   "Civil Engineer",
@@ -349,15 +360,15 @@ function openVocTest1() {
 	                   "Company director",
 	                   "Computer Engineer",
 	                   "Cost & Works accountant",
-	                   "Counselor/psychologist",
+	                   "Counselor or psychologist",
 	                   "Crime Reporter",
-	                   "Department Store/Mall Manager",
-	                   "Detective/ Investigator",
+	                   "Department Store or Mall Manager",
+	                   "Detective or Investigator",
 	                   "Disease Research work",
-	                   "Doctor/ Para-medical",
-	                   "Dog/Animal Breeder",
+	                   "Doctor or Para-medical",
+	                   "Dog or Animal Breeder",
 	                   "Economist",
-	                   "Editor/journalist",
+	                   "Editor or journalist",
 	                   "Education manager",
 	                   "Entrepreneur",
 	                   "Environment Specialist",
@@ -365,12 +376,12 @@ function openVocTest1() {
 	                   "Explorer",
 	                   "Facilities manager",
 	                   "Factory Manager",
-	                   "Farmer/ agriculturist",
+	                   "Farmer or agriculturist",
 	                   "Fashion Designer",
 	                   "Fighter Pilot",
 	                   "Finance manager",
 	                   "Fire fighter",
-	                   "Film/ theater Director",
+	                   "Film or theater Director",
 	                   "Food Analyst",
 	                   "Foreign exchange Specialist",
 	                   "Foreign Service Officer",
@@ -379,35 +390,35 @@ function openVocTest1() {
 	                   "Hospital Administrator",
 	                   "Hotel Manager",
 	                   "HRD Manager",
-	                   "IAS/KAS officer",
+	                   "IAS or KAS officer",
 	                   "Insurance expert",
 	                   "International Trade",
-	                   "Interpreter/Translator",
+	                   "Interpreter or Translator",
 	                   "Inventor or product developer",
 	                   "Investment Banker",
 	                   "Labor Welfare Officer",
-	                   "Lawyer/ legal expert",
+	                   "Lawyer or legal expert",
 	                   "Librarian",
-	                   "Logistics/supply officer",
+	                   "Logistics or supply officer",
 	                   "Marketing Professional",
 	                   "Mathematician",
 	                   "Mechanical Engineer",
 	                   "Meteorologist",
 	                   "Microbiologist",
-	                   "Model/Actor",
+	                   "Model or Actor",
 	                   "Music composer",
 	                   "NGO manager",
 	                   "Social worker",
-	                   "Nutrition/ dietician",
+	                   "Nutrition or dietician",
 	                   "Office manager",
 	                   "Officer of a ship",
 	                   "Pediatrician",
-	                   "Pharmacist/drug mfr",
+	                   "Pharmacist or drug mfr",
 	                   "Plant specialist",
 	                   "Political analyst",
 	                   "Politician",
 	                   "Pollution control Expert",
-	                   "Portal/webpage manager",
+	                   "Portal or webpage manager",
 	                   "Professional Car racing",
 	                   "Projects developer",
 	                   "Public Speaker",
@@ -417,24 +428,24 @@ function openVocTest1() {
 	                   "Scientific research",
 	                   "Soil Scientist",
 	                   "Speech therapist",
-	                   "Statistician/ economist",
-	                   "Stock/investments ",
+	                   "Statistician or economist",
+	                   "Stock or investments ",
 	                   "Structural Engineer",
 	                   "Surgeon",
 	                   "Systems analyst",
 	                   "Systems manager",
 	                   "Tax consultant",
-	                   "Teacher/educationist",
+	                   "Teacher or educationist",
 	                   "Team leader",
 	                   "Theatre Set Designer",
 	                   "Tourism guide",
-	                   "Trader/ dealer",
+	                   "Trader or dealer",
 	                   "Training Administrator",
-	                   "Travel agent/Executive",
+	                   "Travel agent or Executive",
 	                   "TV Script writer",
 	                   "Veterinarian",
 	                   "Wild life Specialist",
-	                   "Writer/ publisher"];
+	                   "Writer or publisher"];
 		var count=0;
 		var selected = "";
 		var selectIndex = "";
@@ -756,4 +767,16 @@ function baAlert(message) {
 		width: 400,
 		height: 150,		
 	}).css("font-size","15px").prev(".ui-dialog-titlebar").css("background","red");
+}
+
+function schuffle(array) {
+	var i = array.length;
+	if ( i == 0 ) return false;
+	  while ( --i ) {
+	     var j = Math.floor( Math.random() * ( i + 1 ) );
+	     var tempi = array[i];
+	     var tempj = array[j];
+	     array[i] = tempj;
+	     array[j] = tempi;
+	  }
 }

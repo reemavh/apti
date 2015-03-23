@@ -414,18 +414,18 @@ function submitCompExam() {
 	localStorage.setItem("comp1",comp1);
 	localStorage.setItem("cy1",cy1);
 	localStorage.setItem("ry1",ry1);
-	localStorage.setItem("comp2",comp1);
-	localStorage.setItem("cy2",cy1);
-	localStorage.setItem("ry2",ry1);
-	localStorage.setItem("comp3",comp1);
-	localStorage.setItem("cy3",cy1);
-	localStorage.setItem("ry3",ry1);
-	localStorage.setItem("comp4",comp1);
-	localStorage.setItem("cy4",cy1);
-	localStorage.setItem("ry4",ry1);
-	localStorage.setItem("comp5",comp1);
-	localStorage.setItem("cy5",cy1);
-	localStorage.setItem("ry5",ry1);
+	localStorage.setItem("comp2",comp2);
+	localStorage.setItem("cy2",cy2);
+	localStorage.setItem("ry2",ry2);
+	localStorage.setItem("comp3",comp3);
+	localStorage.setItem("cy3",cy3);
+	localStorage.setItem("ry3",ry3);
+	localStorage.setItem("comp4",comp4);
+	localStorage.setItem("cy4",cy4);
+	localStorage.setItem("ry4",ry4);
+	localStorage.setItem("comp5",comp5);
+	localStorage.setItem("cy5",cy5);
+	localStorage.setItem("ry5",ry5);
 
 	window.location.href = "a7.html";	
 }
@@ -482,7 +482,7 @@ function submitTuition() {
 	var tuition = document.getElementById("tuition").value;
 	var skip = document.getElementById("skip").checked;
 	if(skip) {		
-		localStorage.setItem("tuition","");
+		localStorage.setItem("tuition","I haven't attended any extra tuition or coaching.");
 	}
 	else if(!skip && tuition=="") {
 		baConfirm("#dialog2", "a9.html");
@@ -501,7 +501,7 @@ function submitFailureChanges() {
 	var fail_change = document.getElementById("fail_change").value;
 	var skip = document.getElementById("skip").checked;
 	if(skip) {		
-		localStorage.setItem("failChange","");
+		localStorage.setItem("failChange","There are no failures or course changes.");
 	}
 	else if(!skip && fail_change=="") {
 		baConfirm("#dialog2", "b10.html");
@@ -526,6 +526,7 @@ function submitCounselling() {
 
 	if(no) {
 		localStorage.setItem("wantCounselling", "No");
+		localStorage.setItem("counsellingReason","I don't want counselling.");
 	}
 	else {
 		localStorage.setItem("wantCounselling", "Yes");
@@ -730,18 +731,28 @@ function submitCompUse() {
 	var browsing = document.getElementById("browsing").checked;
 	if(browsing)
 		localStorage.setItem("browing","yes");
+	else
+		localStorage.setItem("browing","no");
 	var games = document.getElementById("games").checked;
 	if(games)
 		localStorage.setItem("games","yes");
+	else
+		localStorage.setItem("games","no");
 	var social = document.getElementById("social").checked;
 	if(social)
 		localStorage.setItem("social","yes");
+	else
+		localStorage.setItem("social","no");
 	var creative = document.getElementById("creative").checked;
 	if(creative)
 		localStorage.setItem("creative","yes");
+	else
+		localStorage.setItem("creative","no");
 	var coding = document.getElementById("coding").checked;
 	if(coding)
 		localStorage.setItem("coding","yes");
+	else
+		localStorage.setItem("coding","no");
 	var otheracts = document.getElementById("otheracts").checked;
 	if(otheracts) {
 		localStorage.setItem("otheracts","yes");
@@ -752,6 +763,9 @@ function submitCompUse() {
 		}
 		localStorage.setItem("otherActivities", others);
 	}	
+	else
+		localStorage.setItem("otheracts","no");
+	
 	if(!(browsing || games || social || creative || coding || otheracts)) {
 		baAlert("#NoSel");
 		return;
@@ -817,6 +831,16 @@ function submitParentChoice() {
 		return;
 	}
 	localStorage.setItem("parentChoice", parentChoice);
+	window.location.href = "c281.html";
+}
+
+function submitAchievement() {
+	var greatestAchievement = document.getElementById("gachieve").value;
+	if(greatestAchievement=="") {
+		baAlert("#incomp");
+		return;
+	}
+	localStorage.setItem("greatAchieve", greatestAchievement);
 	window.location.href = "c29.html";
 }
 
