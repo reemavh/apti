@@ -20,14 +20,14 @@ public class Vocations {
 		for(int i = 0; i <nSelected; i++ ) {
 			vocationsAll[i] = Integer.parseInt(tokens[i]);
 		}
-		
-		if(fullJson.get("vocTwo").toString().split("\\|").length ==  1)
+		if(fullJson.get("vocTwo").toString().split("\\|").length ==  1)	{
+			vocation1 = fullJson.get("vocTwo").toString().split("\\|")[0];			
+		}
+		else if(fullJson.get("vocTwo").toString().split("\\|").length ==  2) {
 			vocation1 = fullJson.get("vocTwo").toString().split("\\|")[0];
-		if(fullJson.get("vocTwo").toString().split("\\|").length ==  2)
 			vocation2 = fullJson.get("vocTwo").toString().split("\\|")[1];
+		}
 		
-		System.out.println("vocation1 = " + vocation1);
-		System.out.println("vocation2 = " + vocation2);
 		evaluate();
 	}
 	

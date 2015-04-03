@@ -64,12 +64,9 @@ function start1() {
 <label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
 </div>
 <p><label style="font-size:18px;color:#4f738e"><b>General Aptitude Questions</b></label></p>
-<div id="0" style="font-size:18px">
+<div id="0" style="display:none;font-size:18px">
 <br>
-<p>We will now ask some multiple choice questions related to general aptitude.
-<br><br>
-<label style="color:red"><b>DO NOT PRESS THE BACK AND REFRESH BUTTONS. THIS WILL RESTART THE TEST.</b></label>
-</p>
+<p><label style="color:red"><b>DO NOT PRESS THE BACK AND REFRESH BUTTONS. THIS WILL RESTART THE TEST.</b></label></p>
 <p>Press <b>Start</b> to begin.</p>
 <br>
 <button style="width:6%;height:6%" onclick="begin()">Start</button> 
@@ -844,15 +841,17 @@ function start1() {
 	<tr><td><b>Set 1:&emsp;</b></td><td>CAP&emsp;</td><td>GAP&emsp;</td><td>GAG&emsp;</td><td>RIP&emsp;</td><td>SIR&emsp;</td></tr>  
 	<tr><td><b>Set 2:&emsp;</b></td><td>642</td><td>746</td><td>313</td><td>312</td><td>012</td></tr>
 	</table>
-	<br><p>Please match each triplet in Set 1 with a triplet in Set 2(<i>Hint:Each number in set 2 stands for a letter in set 1)</i>.</p>
+	<br><p>Please match each triplet in Set 1 with a triplet in Set 2.</p>
 	<table style='font-size:18px'>	
 		<tr><td>CAP</td><td>&emsp;matches&emsp;</td><td><select id="mcol1"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
 		<tr><td>GAP</td><td>&emsp;matches&emsp;</td><td><select id="mcol2"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
 		<tr><td>GAG</td><td>&emsp;matches&emsp;</td><td><select id="mcol3"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>		
 		<tr><td>RIP</td><td>&emsp;matches&emsp;</td><td><select id="mcol4"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
 		<tr><td>SIR</td><td>&emsp;matches&emsp;</td><td><select id="mcol5"><option disabled selected></option><option value="1">642</option><option value="2">746</option><option value="3">313</option><option value="4">312</option><option value="5">012</option></select></td></tr>
-	</table>    
-	<br>
+	</table>
+	<br>    	
+	<i>Hint:Each number in set 2 stands for a letter in set 1</i>.
+	<br><br>
 	<button style="width:6%;height:6%" onclick="tiqAns(105)">Next</button>
 </div>
 <div id="106" style='display:none;font-size:18px'>
@@ -866,7 +865,7 @@ function start1() {
 </div>
 <div id="107" style='display:none;font-size:18px'>
     <label>When directions are shown in a map with an arrow like this, which way is East?</label><br>
-    <img src="http://i.imgur.com/QSkNtER.png" alt="Loading image..." >
+    <img width=230 height=150 src="http://i.imgur.com/QSkNtER.png" alt="Loading image..." >
     <p><input name="abcde" type="radio" id="tiq107a" /><label>&nbsp;&nbsp;A</label></p>
     <p><input name="abcde" type="radio" id="tiq107b" /><label>&nbsp;&nbsp;B</label></p>
     <p><input name="abcde" type="radio" id="tiq107c" /><label>&nbsp;&nbsp;C</label></p>
@@ -894,19 +893,19 @@ function start1() {
 <div id="110" style='display:none;font-size:18px'>
     <label>What number can fill in this blank?</label><br>
     <br>70, 11, 81, 92,  ___ , 265
-    <br><br><p>Enter your answer in this box:</p>
-    <textarea id="tiq110" rows="1" cols="5"></textarea>
+    <br><br>Enter your answer in this box:&emsp;
+    <input id="tiq110" style="width:50px"></input>
     <br><br><button style="width:6%;height:6%" onclick="tiqAns(110)">Next</button>
 </div>
 <div id="111" style='display:none;font-size:18px'>
-    <label>Which letter can fill in the blank below?</label><br>
+    <label>Which letter can fill in the blank below?</label><br><br>
     <table>
     <tr><td>A&emsp;</td><td>D&emsp;</td><td>G&emsp;</td></tr>
     <tr><td>J&emsp;</td><td>M&emsp;</td><td>P&emsp;</td></tr>
     <tr><td>S&emsp;</td><td>V&emsp;</td><td>_&emsp;</td></tr>
     </table>
-    <br><p>Enter your answer in this box:</p>
-	<textarea id="tiq111" rows="1" cols="10"></textarea>
+    <br>Enter your answer in this box: &emsp;
+	<input id="tiq111" style="width:50px"></input>
     <br><br><button style="width:6%;height:6%" onclick="tiqAns(111)">Next</button>
 </div>
 <div id="112" style='display:none;font-size:18px'>
@@ -914,11 +913,11 @@ function start1() {
     <img width="200" height="100" src="http://i.imgur.com/9YGFyLz.png" alt="Loading image...">
     <p>Which one of these sets can fill in the blank line above?</p>	
 	<table>
-		<tr><td><input type="radio" id="tiq112a"></td><td><img width="100" height="20" src="http://i.imgur.com/7L5S5TE.png" /></td></tr>
+		<tr><td><input type="radio" name="abc" id="tiq112a"></td><td><img width="100" height="20" src="http://i.imgur.com/7L5S5TE.png" /></td></tr>
 		<tr><td><br></td></tr>
-		<tr><td><input type="radio" id="tiq112b"></td><td><img width="100" height="20" src="http://i.imgur.com/kBdIpLT.png" /></td></tr>
+		<tr><td><input type="radio" name="abc" id="tiq112b"></td><td><img width="100" height="20" src="http://i.imgur.com/kBdIpLT.png" /></td></tr>
 		<tr><td><br></td></tr>
-		<tr><td><input type="radio" id="tiq112c"></td><td><img width="100" height="20" src="http://i.imgur.com/kSCpK1Z.png" /></td></tr>
+		<tr><td><input type="radio" name="abc" id="tiq112c"></td><td><img width="100" height="20" src="http://i.imgur.com/kSCpK1Z.png" /></td></tr>
 	</table>
 	<br>
     <button style="width:6%;height:6%" onclick="tiqAns(112)">Next</button>
@@ -934,8 +933,8 @@ function start1() {
     <p><input name="abcde" type="radio" id="gatm113e" /><label>&nbsp;&nbsp;Both are Parkinson’s number</label></p>
     <button style="width:6%;height:6%" onclick="gatmAns(113)">Next</button>
 </div>
-<div id="114" style='display:none;font-size:18px'>
-    <label>Fill in the blank</label><br>
+<div id="114" style='font-size:18px'>
+    <label>Fill in the blank</label><br><br>
     <table>
     <tr><td>6&emsp;</td><td>2&emsp;</td><td>4</td></tr>
     <tr><td>5&emsp;</td><td>1&emsp;</td><td>3</td></tr>
@@ -943,8 +942,7 @@ function start1() {
     <tr><td>6&emsp;</td><td>8&emsp;</td><td>7</td></tr>
     <tr><td>7&emsp;</td><td>7&emsp;</td><td>?</td></tr>    
     </table>
-    <br><br>Enter your answer here:
-    <br><textarea rows="1" cols="10" id="gatm114"></textarea>
+    <br>Enter your answer here:&emsp;<input id="gatm114" style="width:50px"></input>
     <br><br><button style="width:6%;height:6%" onclick="gatmAns(114)">Next</button>
 </div>
 <div id="115" style='display:none;font-size:18px'>
@@ -1047,11 +1045,13 @@ function start1() {
 	<br>old as I’ll be in two year’s time”. Ratha said, "When I’m as old as you were then I was three year older than you were 
 	<br>when you were twice as old as what you are."</i> 
     </label><br></p>
-    <p><label>What is Prakash's age?</label>
-    <br><textarea id="gatm125a" /></textarea></p> 
-    
-    <p><label>What is Ratna's age?</label>
-    <br><textarea id="gatm125b" /></textarea></p>
+    <table>
+    <tr><td><label>What is Prakash's age?</label></td><td>&emsp;</td>
+    <td><input id="gatm125a" style="width:50px"/></input></tr>
+    <tr><td><br></td></tr>     
+    <tr><td><label>What is Ratna's age?</label></td><td>&emsp;</td>
+    <td><input id="gatm125b" style="width:50px"/></td></tr>
+    </table>
     <br><button style="width:6%;height:6%" onclick="gatmAns(125)">Next</button>
 </div>
 <div id="126" style='display:none;font-size:18px'>
@@ -1067,7 +1067,7 @@ function start1() {
 <div id="127" style='display:none;font-size:18px'>
     <label>Sum of first 22 terms in sequence of numbers whose first 6 terms are as below. What is in the thousands place of the sum?
     <br><br>7,77,777,7777,77777,777777, ....... </label>    
-   	<br><textarea id="gatm127" /></textarea>
+   	<br><input id="gatm127" /></input>
     <br><br><button style="width:6%;height:6%" onclick="gatmAns(127)">Next</button>
 </div>
 <!-- GATM ends -->
@@ -1288,7 +1288,7 @@ Ten words!
 <div id="147" style='display:none;font-size:18px'>
 <p>This completes the multiple choice questions section. Thanks!</p>
 <p>Press <b>Continue</b> to continue with the aptitude test.
-<br>
+<br><br>
 <a class="myButton" onclick="endTest()">Continue</a>
 </div>
 <div id="errorDiv" style='font-size:18px'></div>

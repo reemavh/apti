@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.ba.apti.comm.DropBoxClient;
+import com.ba.apti.comm.Emailer;
 import com.ba.apti.comm.MySQLClient;
 
 
@@ -47,9 +48,9 @@ public class BAResponse {
 		isi = new ISI(jsonObject);
 		vocations = new Vocations(jsonObject);
 		rit = new RIT(jsonObject);
-		System.out.println(this);
+		Emailer.mail(this.toString(),contactInfo.getName());
 		InputStream stream = new ByteArrayInputStream(this.toString().getBytes(StandardCharsets.UTF_8));
-		String dbxFileName = contactInfo.getName().replace(" ", "_").replace(".", "_") + ".html";
+		String dbxFileName = (contactInfo.getName()+"_"+contactInfo.getEmail()).replace(" ", "_").replace(".", "_") + ".html";
 		String phone;
 		if( DropBoxClient.storeFile(stream, this.toString().length(), dbxFileName))		
 			return MySQLClient.getConnector().addEntry(contactInfo.getName(), 

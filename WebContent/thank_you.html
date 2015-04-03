@@ -10,6 +10,11 @@
 </head>
 <script>
 function submitResponse() {	
+	if(localStorage.getItem("uploaded") == "yes") {
+		document.getElementById("conclude").innerHTML = "<br><br><br>Thank You!";
+		return;
+	}
+		
 	var json = "{ \"answer\" : {";
 	var i=0;
 	for (; i < localStorage.length-1; i++){
@@ -28,6 +33,24 @@ function submitResponse() {
   	json+=append;
 	json += "}}"
 	console.log(json);
+	xmlhttp=new XMLHttpRequest();	
+	//xmlhttp.open('POST','http://appstitch.mybluemix.net/rest/app',false);
+	xmlhttp.open('POST','http://localhost:8080/BA-2/rest/receiver',false);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var params = "jsonTestResponse="+json;
+	xmlhttp.send(params);
+	
+	if( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {	 
+		document.getElementById("conclude").innerHTML = "<br><br><br>Thank You!";
+		localStorage.setItem("uploaded", "yes");
+	}
+	
+	else {
+		document.getElementById("conclude").innerHTML = "<br><br><br>Failed. Retrying ... !";
+		localStorage.setItem("uploaded", "no");
+		submitResponse();
+	}
+
 }
 </script>
 <body onload="submitResponse()">
@@ -36,11 +59,14 @@ function submitResponse() {
 <label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
 </div>
 <div class="header" style="background-color:#FFFFFF;font-size:2em;color:black">
+<div id="conclude">
 <p>Uploading your response.</p> 
 <p>
 <img src="http://daycomobile.com/static/skin/ajax-loader.gif" alt="Please wait ...">
 </p> 
-<p><label style="color:red"><b>Do not press any button. This may take a few seconds.</b></label></p></div>
+<p><label style="color:red"><b>Do not press any button. This may take a few seconds.</b></label></p>
+</div>
+</div>
 <br><br><br><br>
 </body>
 </html>

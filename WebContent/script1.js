@@ -329,7 +329,7 @@ function submitGatf1() {
 	}
 	localStorage.setItem("gatf1wc", gatf1wc);
 	localStorage.setItem("gatfwcTime", totalTime);
-	alert("Total time taken in seconds = " + totalTime);
+	//alert("Total time taken in seconds = " + totalTime);
 	window.location.href="d35.html";
 }
 
@@ -461,7 +461,7 @@ function openVocTest1() {
 		localStorage.setItem("vocAll", selectIndex);
 			
 		document.cookie = "voc1="+selected; //need to change to concat
-		alert(selectIndex);
+		//alert(selectIndex);
 		window.location.href="d36.html";
 		return;
 }
@@ -481,7 +481,7 @@ function submitVoc2() {
 		baAlert("Please select only two vocations.");
 		return;
 	}
-	alert(twoVoc);
+	//alert(twoVoc);
 	localStorage.setItem("vocTwo", twoVoc);
 	window.location.href="d37.html";
 }
@@ -494,7 +494,7 @@ function submitISI() {
 			isiAns += (i+"|");
 	}
 	localStorage.setItem("isi", isiAns);
-	alert(isiAns);
+	//alert(isiAns);
 	window.location.href="d38.html";
 }
 
@@ -749,7 +749,7 @@ function getAORN(num) {
 function getCookie(cname) {
 	
     var name = cname + "=";
-    alert(name);
+    //alert(name);
     var ca = document.cookie.split('+');
     for(var i=0; i<ca.length; i++) {
         var c = ca[i];
@@ -763,10 +763,10 @@ function getCookie(cname) {
 function baAlert(message) {
 	document.getElementById("errorDiv").innerHTML = message;
 	$( "#errorDiv" ).dialog({
-		title: "Sorry!",
+		title: "Error",
 		width: 400,
 		height: 150,		
-	}).css("font-size","15px").prev(".ui-dialog-titlebar").css("background","red");
+	}).css("font-size","15px").prev(".ui-dialog-titlebar").css("background","red").css("color","white");
 }
 
 function schuffle(array) {

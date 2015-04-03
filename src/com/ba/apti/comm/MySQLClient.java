@@ -35,6 +35,38 @@ public class MySQLClient {
 		return true;
 	}
 
+	public String getLatestEntries(int n)  {
+		String query = "select * from BATEST order by TODAY DESC LIMIT " + n;
+		ResultSet results = executeQuery(query);
+		StringBuilder resultJson = new StringBuilder();
+		resultJson.append("{\"results\":[");
+		try {
+			if(results.next()) {
+				resultJson.append("{");
+				resultJson.append("\"name\":\"" + results.getString("NAME") + "\",");
+				resultJson.append("\"email\":\"" + results.getString("EMAIL") + "\",");
+				resultJson.append("\"url\":\"" + DropBoxClient.getPublicURL(results.getString("DBXFILENAME")) + "\",");
+				resultJson.append("\"date\":\"" + results.getDate("TODAY") + "\",");
+				resultJson.append("\"phone\":\"" + results.getString("PHONENUM") + "\"");
+				resultJson.append("}");
+			}
+			while(results.next()) {
+				resultJson.append(",{");
+				resultJson.append("\"name\":\"" + results.getString("NAME") + "\",");
+				resultJson.append("\"email\":\"" + results.getString("EMAIL") + "\",");
+				resultJson.append("\"url\":\"" + DropBoxClient.getPublicURL(results.getString("DBXFILENAME")) + "\",");
+				resultJson.append("\"date\":\"" + results.getDate("TODAY") + "\",");
+				resultJson.append("\"phone\":\"" + results.getString("PHONENUM") + "\"");
+				resultJson.append("}");			
+			}
+			resultJson.append("]}");
+			return resultJson.toString();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
     private static Connection connection;
 	private static MySQLClient connector;
 	static {
@@ -86,6 +118,7 @@ public class MySQLClient {
 		}
 	}
 	
+	/*
 	public int executePreparedUpdate(PreparedStatement ps) {
 		try {
 			return ps.executeUpdate();
@@ -93,6 +126,6 @@ public class MySQLClient {
 			e.printStackTrace();
 			return 0;
 		}
-	}
+	}*/
 	
 }
