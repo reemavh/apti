@@ -730,29 +730,19 @@ function submitFavPerson() {
 function submitCompUse() {
 	var browsing = document.getElementById("browsing").checked;
 	if(browsing)
-		localStorage.setItem("browing","yes");
-	else
-		localStorage.setItem("browing","no");
+		localStorage.setItem("browsing","yes");
 	var games = document.getElementById("games").checked;
 	if(games)
 		localStorage.setItem("games","yes");
-	else
-		localStorage.setItem("games","no");
 	var social = document.getElementById("social").checked;
 	if(social)
 		localStorage.setItem("social","yes");
-	else
-		localStorage.setItem("social","no");
 	var creative = document.getElementById("creative").checked;
 	if(creative)
 		localStorage.setItem("creative","yes");
-	else
-		localStorage.setItem("creative","no");
 	var coding = document.getElementById("coding").checked;
 	if(coding)
 		localStorage.setItem("coding","yes");
-	else
-		localStorage.setItem("coding","no");
 	var otheracts = document.getElementById("otheracts").checked;
 	if(otheracts) {
 		localStorage.setItem("otheracts","yes");
@@ -763,8 +753,6 @@ function submitCompUse() {
 		}
 		localStorage.setItem("otherActivities", others);
 	}	
-	else
-		localStorage.setItem("otheracts","no");
 	
 	if(!(browsing || games || social || creative || coding || otheracts)) {
 		baAlert("#NoSel");

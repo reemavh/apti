@@ -118,17 +118,17 @@ public class Subjective {
 	private String digitalLifeDetails(JSONObject fullJson) {
 		StringBuilder digiLife = new StringBuilder();
 		digiLife.append("<ol>");
-		if(fullJson.containsKey("browsing") && fullJson.get("browsing").equals("yes"))
+		if(fullJson.containsKey("browsing"))
 			digiLife.append("<li>Browsing</li>");
-		if(fullJson.containsKey("games") && fullJson.get("games").equals("yes"))
+		if(fullJson.containsKey("games"))
 			digiLife.append("<li>Playing games</li>");
-		if(fullJson.containsKey("social")&& fullJson.get("social").equals("yes"))
+		if(fullJson.containsKey("social"))
 			digiLife.append("<li>Using social networking tools like Facebook, Whatsapp</li>");
-		if(fullJson.containsKey("creative")&& fullJson.get("creative").equals("yes"))
+		if(fullJson.containsKey("creative"))
 			digiLife.append("<li>Creative work like designing, animation</li>");
-		if(fullJson.containsKey("coding")&& fullJson.get("coding").equals("yes"))
+		if(fullJson.containsKey("coding"))
 			digiLife.append("<li>Computer Programming</li>");
-		if(fullJson.containsKey("otherActs")&& fullJson.get("otherActs").equals("yes"))
+		if(fullJson.containsKey("otheracts"))
 			digiLife.append("<li>"+fullJson.get("otherActivities").toString()+"</li>");
 		digiLife.append("</ol>");
 		return digiLife.toString();

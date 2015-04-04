@@ -48,17 +48,33 @@ public class BAResponse {
 		isi = new ISI(jsonObject);
 		vocations = new Vocations(jsonObject);
 		rit = new RIT(jsonObject);
-		Emailer.mail(this.toString(),contactInfo.getName());
-		InputStream stream = new ByteArrayInputStream(this.toString().getBytes(StandardCharsets.UTF_8));
-		String dbxFileName = (contactInfo.getName()+"_"+contactInfo.getEmail()).replace(" ", "_").replace(".", "_") + ".html";
+				
+		
+		
+		String id = genId(contactInfo);
+		Emailer.mail(this.toString(),id);
+		Emailer.mailCandidate(contactInfo.getName(),id,  contactInfo.getEmail());
+		
+		String dbxFileName = id + ".html";
 		String phone;
+		InputStream stream = new ByteArrayInputStream(this.toString().getBytes(StandardCharsets.UTF_8));
 		if( DropBoxClient.storeFile(stream, this.toString().length(), dbxFileName))		
-			return MySQLClient.getConnector().addEntry(contactInfo.getName(), 
+			return MySQLClient.getConnector().addEntry(id,contactInfo.getName(), 
 				contactInfo.getDateOfBirth(), 
 				contactInfo.getEmail(), 
 				(phone = contactInfo.getPhone1()) == null ? contactInfo.getPhone2() : phone, 
 				dbxFileName);		
 		return false;
+	}
+	
+	private String genId(ContactInfo cinfo) {
+		String p1 = cinfo.getDateOfBirth().substring(0,2);
+		String p2 = cinfo.getDateOfBirth().substring(3,6);
+		String now = Long.toString(System.nanoTime());
+		int len = now.length();
+		String p3 = now.substring(len-3, len);		
+		String p4 = cinfo.getName().substring(0,4);
+		return new String(p1+p2+p3+p4).toUpperCase();
 	}
 	
 	public String toString() {

@@ -34,8 +34,8 @@ function submitResponse() {
 	json += "}}"
 	console.log(json);
 	xmlhttp=new XMLHttpRequest();	
-	//xmlhttp.open('POST','http://appstitch.mybluemix.net/rest/app',false);
-	xmlhttp.open('POST','http://localhost:8080/BA-2/rest/receiver',false);
+	xmlhttp.open('POST','http://batest.mybluemix.net/rest/receiver',false);
+	//xmlhttp.open('POST','http://localhost:8080/BA-2/rest/receiver',false);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	var params = "jsonTestResponse="+json;
 	xmlhttp.send(params);

@@ -9,16 +9,17 @@ import java.sql.Statement;
 
 public class MySQLClient {
 	
-	public boolean addEntry( String name, String dateOfBirth, String email, 
+	public boolean addEntry( String id, String name, String dateOfBirth, String email, 
 			String phone, String dbxFileName) {
 		String sql= "INSERT INTO BATEST" +
-					"(" +
+					"(" + 
 						"NAME," + 
 						"DOB," + 
 						"EMAIL," +  
 						"PHONENUM," + 
-						"DBXFILENAME" +
-				")VALUES(?,?,?,?,?)";
+						"DBXFILENAME," +
+						"ID" + 
+				")VALUES(?,?,?,?,?,?)";
 		
 		PreparedStatement preparedStatement = getPreparedStatement(sql);
 		try {
@@ -27,6 +28,7 @@ public class MySQLClient {
 			preparedStatement.setString(3, email);
 			preparedStatement.setString(4, phone);
 			preparedStatement.setString(5, dbxFileName);
+			preparedStatement.setString(6, id);
 			preparedStatement.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -43,6 +45,7 @@ public class MySQLClient {
 		try {
 			if(results.next()) {
 				resultJson.append("{");
+				resultJson.append("\"id\":\"" + results.getString("ID") + "\",");
 				resultJson.append("\"name\":\"" + results.getString("NAME") + "\",");
 				resultJson.append("\"email\":\"" + results.getString("EMAIL") + "\",");
 				resultJson.append("\"url\":\"" + DropBoxClient.getPublicURL(results.getString("DBXFILENAME")) + "\",");
@@ -52,6 +55,7 @@ public class MySQLClient {
 			}
 			while(results.next()) {
 				resultJson.append(",{");
+				resultJson.append("\"id\":\"" + results.getString("ID") + "\",");
 				resultJson.append("\"name\":\"" + results.getString("NAME") + "\",");
 				resultJson.append("\"email\":\"" + results.getString("EMAIL") + "\",");
 				resultJson.append("\"url\":\"" + DropBoxClient.getPublicURL(results.getString("DBXFILENAME")) + "\",");
@@ -78,7 +82,9 @@ public class MySQLClient {
 		}
 	
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/batest","root", "passw0rd");			
+			
+			connection = DriverManager.getConnection("jdbc:db2://75.126.155.153:50000/SQLDB","user03385", "oZMKx9XxB6D9");
+			//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/batest","root", "passw0rd");			
 		} catch ( SQLException e ) {
 			System.err.println ( "Connection failed.");
 			e.printStackTrace();

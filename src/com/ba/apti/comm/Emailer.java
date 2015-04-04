@@ -6,15 +6,29 @@ import javax.mail.internet.*;
 
 public class Emailer {
 
-    private static String USER_NAME = "banjara.aptitude"; 
-    private static String PASSWORD = "Reema.vh16"; 
+    final private static String USER_NAME = "banjara.aptitude"; 
+    final private static String PASSWORD = "Reema.vh16"; 
     private static String RECIPIENT = "banjara.aptitude@gmail.com";
 
-    public static void mail(String content, String name) {
+    public static void mailCandidate(String name, String id, String email) {
+ 	
+        String from = USER_NAME;
+        String pass = PASSWORD;
+        String[] to = { email }; // list of recipient email addresses
+        String subject = "Banjara Academy - Thank You!";
+        String body = "Hi <b>" + name + "</b>," + 
+        		" <br><br> Thank you for taking up the Banjara aptitude test. Your ID is " + id + "." +  
+        		" Please use the same in any future communication with Banjara, in this regard." +  
+        		"<br><br> Good Luck! <br> <b>Banjara Academy</b>";
+
+        sendFromGMail(from, pass, to, subject, body);
+    }
+    
+    public static void mail(String content, String id) {
         String from = USER_NAME;
         String pass = PASSWORD;
         String[] to = { RECIPIENT }; // list of recipient email addresses
-        String subject = "Aptitude Test Result - " + name;
+        String subject = "Aptitude Test Result - " + id;
         String body = content;
 
         sendFromGMail(from, pass, to, subject, body);

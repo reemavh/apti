@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="script0.js"></script>
@@ -8,16 +8,68 @@
 <script src="script1.js"></script>
 <title>Banjara Academy Aptitude Test</title>
 </head>
+<script>
+function getResponses() {
+	var token = document.getElementById("token").value;
+	if(token == "") {
+		alert("Please enter the secret token.");
+		return;
+	}
+	xmlhttp=new XMLHttpRequest();	
+	
+	xmlhttp.onreadystatechange = function(){handleResponse(xmlhttp);};
+	xmlhttp.open('POST','http://batest.mybluemix.net/rest/results',false);
+	//xmlhttp.open('POST','http://localhost:8080/BA-2/rest/results',true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var params = "token="+token;
+	xmlhttp.send(params);
+	document.getElementById("input").style.display='none';	
+	document.getElementById("error").style.display='none';
+	document.getElementById("output").innerHTML = "<h2>Please wait...</h2>";
+	document.getElementById("output").style.display='block';
+}
+
+function handleResponse(xmlhttp) {
+	if( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
+		if(xmlhttp.responseText == "auth failed") {
+			document.getElementById("input").style.display='block';
+			document.getElementById("error").style.display='block';
+			document.getElementById("output").style.display='none';
+			return;
+		}
+		document.getElementById("input").style.display='none';
+		document.getElementById("error").style.display='none';
+		var records = eval ( '(' + xmlhttp.responseText+')');
+		var html = "<h2>Most recent responses</h2>";
+		html += "<table style=\"padding:1px\" class=\"table table-condensed table-bordered table-striped\">";
+		html += "<thead><tr><th>ID</th><th>Name</th><th>Date</th><th>Response</th></tr></thead>";
+		html += "<tbody>"
+		for(var i=0;i<records.results.length;i++) {
+			html += "<tr>";
+			html += "<td>" + records.results[i].id + "</td>";
+			html += "<td>" + records.results[i].name + "</td>";
+			html += "<td>" + records.results[i].date  + "</td>";
+			html += "<td><a href=\"" + records.results[i].url + "\" target=\"_blank\">Answer sheet</a></td>";
+			html += "</tr>";
+		}
+		html += "</tbody>";
+		document.getElementById("output").innerHTML = html;		
+	}
+}
+</script>
 <body>
 <div class="header">
 <label style="font-size:3em">APTITUDE TEST</label><br>
-<label style="font-size:1em"><i>Powered by Banjara Academy, Bangalore</i></label>
+<label style="font-size:1em">OFFICE PORTAL</label>
 </div>
-<div class="header" style="background-color:#FFFFFF;color:black">
-<br><br><br><br>
+<div id="input" class="header" style="background-color:#FFFFFF;color:black">
+<br><br><br>
 <label>Enter the secret token: </label>&emsp;<input type="password" id="token"/>
 <br><br>
-<a class="myButton" onclick="start()">Get Responses</a>
+<a class="myButton" onclick="getResponses();">Get Responses</a>
+<br><br><div id="error" style="display:none"><h4 style="color:red">Wrong token entered. Please retry.</h4></div>
+</div>
+<div id="output">
 </div>
 </body>
 </html>
